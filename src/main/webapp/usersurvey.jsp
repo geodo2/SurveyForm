@@ -258,7 +258,7 @@ pageEncoding="UTF-8"  %>
       <form id="surveyfm" nmae="surveyfm" method="POST" action="./createSurveyAction.jsp">
       <input type="hidden" name="total" id="total">
          <div class="formNameSection">
-           학생식당 수요조사
+          기숙사 수요조사
          </div>
          
          <!-- <div class="questionDiv">
