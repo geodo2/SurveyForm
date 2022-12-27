@@ -2,7 +2,9 @@
 pageEncoding="UTF-8"  %>
 
 <%@ page import='java.io.PrintWriter' %>
-<%@ page import='survey.SurveyDAO' %>
+<%@ page import='survey.Survey_answer_DAO' %>
+
+<%@ page import='survey.Survey_question_VO' %>
 <%@ page import='user.UserDAO' %>
 
 
@@ -216,14 +218,13 @@ pageEncoding="UTF-8"  %>
 </head>
 <body>
 <% 
-
-	int survey_seq = Integer.parseInt(request.getParameter("sid"));
-	if(request.getParameter("survey_seq") != null){
-		%>
-		
-		<% 	
-	}else{
-		
+	Survey_answer_DAO surveyO = new Survey_answer_DAO();
+	int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
+	
+	
+	Survey_question_VO[] make_data = surveyO.question_data(1);
+	
+	
 		
 %>
 
@@ -253,13 +254,16 @@ pageEncoding="UTF-8"  %>
 
 </nav>
 	 <div class="middle">
-     
-      
+    
+      <div class="survey-title form-group col-sm-12">
+				<label class='option-title-text' id='surveyTitle'><%=make_data[0].getSurvey_content()%></label>
+			</div>
       <form id="surveyfm" nmae="surveyfm" method="POST" action="./createSurveyAction.jsp">
       <input type="hidden" name="total" id="total">
          <div class="formNameSection">
-          기숙사 수요조사
+
          </div>
+
          
          <!-- <div class="questionDiv">
             <div class="firstSet">
@@ -287,11 +291,7 @@ pageEncoding="UTF-8"  %>
       
       
    </div>     
-<% 	
 
-		
-	}
-%>
 
 
 	
