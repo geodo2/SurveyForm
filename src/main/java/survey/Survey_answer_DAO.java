@@ -68,6 +68,50 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		
 		return newsurvey;
 	}
+	public Survey_VO[] question_list_data(int survey_seq) {
+		System.out.println("here");
+		Survey_VO[] newsurvey = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM survey_list WHERE survey_seq = ?;";
+		String countQuery = "SELECT count(*) FROM survey_list WHERE survey_seq = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			newsurvey = new Survey_VO[count];
+			System.out.println(count);
+			System.out.println("here");
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				newsurvey[i] =new Survey_VO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return newsurvey;
+	}
 	
 	
 	

@@ -3,12 +3,13 @@ pageEncoding="UTF-8"  %>
 
 <%@ page import='java.io.PrintWriter' %>
 <%@ page import='survey.Survey_answer_DAO' %>
-
+<%@ page import='survey.Survey_VO' %>
+<%@ page import='survey.Survey_DAO' %>
 <%@ page import='survey.Survey_question_VO' %>
 <%@ page import='user.UserDAO' %>
 
-
-<%@ page import='java.net.URLEncoder' %>
+<%@ page import='user.UserDAO' %>
+<%@ page import='java.lang.reflect.Method' %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -221,8 +222,11 @@ pageEncoding="UTF-8"  %>
 	Survey_answer_DAO surveyO = new Survey_answer_DAO();
 	int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
 	
-	
-	Survey_question_VO[] make_data = surveyO.question_data(1);
+	System.out.println(survey_sid+"123");
+	Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
+	Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
+
+	int question_num = question_list.length;
 	
 	
 		
@@ -253,17 +257,16 @@ pageEncoding="UTF-8"  %>
 </div>ㅇ
 
 </nav>
-	 <div class="middle">
-    
-      <div class="survey-title form-group col-sm-12">
-				<label class='option-title-text' id='surveyTitle'><%=make_data[0].getSurvey_content()%></label>
-			</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<div class="middle">
+     
+      
       <form id="surveyfm" nmae="surveyfm" method="POST" action="./createSurveyAction.jsp">
       <input type="hidden" name="total" id="total">
-         <div class="formNameSection">
-
+         <div class="name">
+            <%=survey_list[0].getSurvey_title()%>
          </div>
-
          
          <!-- <div class="questionDiv">
             <div class="firstSet">
@@ -283,16 +286,100 @@ pageEncoding="UTF-8"  %>
          </div> -->
          
          <div class="footer">
-            <button type="submit" class="submitBtn">설문 제출</button>
+            <button type="submit" class="submitBtn">설문제출</button>
          </div>
           
       </form>
-      242
-      
-      
-   </div>     
+    
+     <script>
+     var template='';
 
-
+     <%
+     for(int i=0; i<question_num;i++){
+   	System.out.println(question_list[i].getSurvey_type());
+   	if(question_list[i].getSurvey_type().equals("Text")){
+    	%>
+    template="";
+    template += "<div class='questionDiv'>";
+    template += "<div class='firstSet'>";
+    template += "<div></div>";
+    template +=	"<div>";
+    template +=	'<%=question_list[i].getSurvey_content()%>';
+    template +=	"</div>";
+    template +=	"<input type='text' class='questionText' name='qs' placeholder='답변을 입력하세요'>"
+	template +=	"</div>";
+    template += "</div>";
+    template += "</div>";
+    
+    $('#surveyfm').append(
+    		template
+         );
+    
+    
+     <%
+   	}
+   	else if(question_list[i].getSurvey_type().equals("Radio")){
+   		%>
+   	 template="";
+     template += "<div class='questionDiv'>";
+     template += "<div class='firstSet'>";
+     template += "<div></div>";
+     template +=	"<div>";
+     template +=	'<%=question_list[i].getSurvey_content()%>';
+     template +=	"</div>";
+     <%
+     if(question_list[i].getQs_5()==null){
+    	 System.out.println("QS공백입니다ggf");
+     %>	 
+    	 
+    	 
+     <%	 
+     } 
+     %>	 
+     template +=	"<input type='text' class='questionText' name='qs' placeholder='라디오'>"
+ 	 template +=	"</div>";
+     template += "</div>";
+     template += "</div>";
+     
+     $('#surveyfm').append(
+     		template
+          );
+     
+   		
+   		
+   		
+   		<%	
+   	}
+   	else if(question_list[i].getSurvey_type().equals("Selection")){
+   		%>
+   	
+   		
+   	 template="";
+     template += "<div class='questionDiv'>";
+     template += "<div class='firstSet'>";
+     template += "<div></div>";
+     template +=	"<div>";
+     template +=	'<%=question_list[i].getSurvey_content()%>';
+     template +=	"</div>";
+     template +=	"<input type='text' class='questionText' name='qs' placeholder='체크박스'>"
+ 	 template +=	"</div>";
+     template += "</div>";
+     template += "</div>";
+     
+     $('#surveyfm').append(
+     		template
+          );
+     
+   		
+   		<%
+    }
+   	}
+   	%> 
+  
+   	
+	
+   
+   </script>
 
 	
 	
