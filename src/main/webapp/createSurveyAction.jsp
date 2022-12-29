@@ -3,9 +3,18 @@
     pageEncoding="UTF-8"%>
     <%@ page import="java.io.PrintWriter, java.util.*"%>
 <%@ page import="survey.*, util.*"%>
-
+<%@ page import='user.UserDAO' %>
 
 <%
+UserDAO userDAO = new UserDAO();
+String userID = null;
+if(session.getAttribute("userID") != null){
+	userID = (String) session.getAttribute("userID");
+	System.out.println(userID);
+}else{
+	userID = "Guest";
+	System.out.println(userID);
+}
 request.setCharacterEncoding("UTF-8");
 PrintWriter script = response.getWriter();
 
@@ -18,6 +27,7 @@ for(int i=1; i<=count; i++){
 	if(request.getParameter("survey_content"+i) != null )
 		cnt.add(i+"");
 }
+survey.setUserID(userID);
 survey.setItem_num(cnt.size());
 
 List<Survey_question_VO> question = new ArrayList<>();// 질문지 내용

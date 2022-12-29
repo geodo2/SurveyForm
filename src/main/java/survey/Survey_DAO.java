@@ -13,7 +13,7 @@ public class Survey_DAO {
 
 	
 	public void insert_survey(Survey_VO survey, List<Survey_question_VO> question) {
-		String sql = "insert into survey_list(survey_title,reg_date,num_of_item) values(?,now(),?)";
+		String sql = "insert into survey_list(survey_title,reg_date,num_of_item,userID) values(?,now(),?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;
@@ -23,6 +23,7 @@ public class Survey_DAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, survey.getSurvey_title());
 			pstmt.setInt(2, survey.getItem_num());
+			pstmt.setString(3, survey.getUserID());
 			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();

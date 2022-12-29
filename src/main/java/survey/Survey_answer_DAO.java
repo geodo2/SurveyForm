@@ -102,7 +102,8 @@ public class Survey_answer_DAO extends DatabaseUtil {
 						rs.getInt(1),
 						rs.getString(2),
 						rs.getString(3),
-						rs.getInt(4)
+						rs.getInt(4),
+						rs.getString(5)
 						);
 				i++;
 			}
@@ -111,6 +112,52 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		}
 		
 		return newsurvey;
+	}
+	
+	public Survey_VO[] get_usersurvey(String userid) {
+		System.out.println("here");
+		Survey_VO[] getsurvey = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM survey_list WHERE userID = ?;";
+		String countQuery = "SELECT count(*) FROM survey_list WHERE userID = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setString(1,userid);
+
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			getsurvey = new Survey_VO[count];
+			System.out.println(count);
+			System.out.println("here");
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1,userid);
+
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				getsurvey[i] =new Survey_VO(
+						rs.getInt(1),
+						rs.getString(2),
+						rs.getString(3),
+						rs.getInt(4),
+						rs.getString(5)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return getsurvey;
 	}
 	
 	

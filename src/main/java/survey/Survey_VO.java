@@ -5,16 +5,18 @@ public class Survey_VO {
 	private String survey_title;
 	private String reg_date;
 	private int item_num;
+	private String userID;
 	
 	public Survey_VO() {}
 	public Survey_VO(String title) {
 		this.survey_title=title;
 	}
-	public Survey_VO(int seq, String title, String date, int item) {
+	public Survey_VO(int seq, String title, String date, int item, String userID) {
 		this.seq=seq;
 		this.survey_title=title;
 		this.reg_date=date;
 		this.item_num=item;
+		this.userID=userID;
 	}
 	public int getSeq() {
 		return seq;
@@ -39,6 +41,12 @@ public class Survey_VO {
 	}
 	public void setItem_num(int item_num) {
 		this.item_num = item_num;
+	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 	
 	

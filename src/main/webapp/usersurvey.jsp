@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 pageEncoding="UTF-8"  %>
-
+<%@ page import="user.*, survey.*" %>
 <%@ page import='java.io.PrintWriter' %>
-<%@ page import='survey.Survey_answer_DAO' %>
-<%@ page import='survey.Survey_VO' %>
-<%@ page import='survey.Survey_DAO' %>
-<%@ page import='survey.Survey_question_VO' %>
-<%@ page import='user.UserDAO' %>
+
 
 <%@ page import='user.UserDAO' %>
 <%@ page import='java.lang.reflect.Method' %>
@@ -16,10 +12,13 @@ pageEncoding="UTF-8"  %>
 <style>
       .titleName{
             margin-top:30px;
-             margin-left: 500px;
+             margin-left: 700px;
             width:900px;
             float :center;
             border:none;
+            font-size:70px;
+            font-weight:bold;
+            text-align:center;
       }
       .description{
             display: block;
@@ -265,10 +264,9 @@ pageEncoding="UTF-8"  %>
       <form id="surveyfm" nmae="surveyfm" method="POST" action="./createSurveyAction.jsp">
       <input type="hidden" name="total" id="total">
          <div class="name">
-            <%=survey_list[0].getSurvey_title()%>
+          <div class ="titleName"><%=survey_list[0].getSurvey_title()%><div>
          </div>
-         
-         <!-- <div class="questionDiv">
+                  <!-- <div class="questionDiv">
             <div class="firstSet">
                <input type="text" class="questionContent" placeholder="질문 내용" name="questionName">
                <div class="questionDelete">
@@ -332,13 +330,13 @@ pageEncoding="UTF-8"  %>
 	 template +=	"<label for='radio1_2'>"
 	 template +=    '<%=question_list[i].getQs_1()%>'
 	 template +=	"</label>"
-	 template +=	"<div onclick='option_del(1,1)' class='optionDelete'>-</div>"
+
 	 template +=	"</div> "                
 	 template +=	"<div id='survey_option1_2'>"
 	 template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
 	 template +=	"<label for='radio1_2'>"
 	 template +=    '<%=question_list[i].getQs_2()%>'
-	 template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	 template +=	"</label>"
 	 template +=	"</div>"    
 
 <%
@@ -349,7 +347,7 @@ pageEncoding="UTF-8"  %>
 	 template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
 	 template +=	"<label for='radio1_2'>"
 	 template +=    '<%=question_list[i].getQs_3()%>'
-	 template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	 template +=	"</label> "
   
 <%	 
   	 } 
@@ -362,7 +360,7 @@ pageEncoding="UTF-8"  %>
 	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
 	template +=	"<label for='radio1_2'>"
 	template +=    '<%=question_list[i].getQs_4()%>'
-	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	template +=	"</label> "
 	template +=	"</div>"   
 <%	 
 	 } 
@@ -375,7 +373,7 @@ pageEncoding="UTF-8"  %>
 	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
 	template +=	"<label for='radio1_2'>"
 	template +=    '<%=question_list[i].getQs_5()%>'
-	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	template +=	"</label> "
 
 <%	 
 	 } 
@@ -388,7 +386,7 @@ pageEncoding="UTF-8"  %>
 	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
 	template +=	"<label for='radio1_2'>"
 	template +=    '<%=question_list[i].getQs_6()%>'
-	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	template +=	"</label>"
 	template +=	"</div>"   
 <%	 
 	 } 
@@ -467,7 +465,18 @@ $('#surveyfm').append(
      template +=	'<%=question_list[i].getSurvey_content()%>';
      template +=	"</div>";
      template +=	"<input type='text' class='questionText' name='qs' placeholder='체크박스'>"
- 	 template +=	"</div>";
+  
+     template += "<div class='questioncheckbox'>"
+   	 template += "<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup' id='checkbox' >" 
+	 template +=                  "<label for='checkbox'><input class='optionBox' type='text' placeholder='선택지1' name='qs_'></label>"
+	 template +=                     "<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup' id='checkbox'>"
+	 template += "<label for='checkbox'><input class='optionBox' type='text' placeholder='선택지2' name='qs_'></label>"
+ 	 template +="</div>"
+                     
+              	 
+     
+     
+     template += "</div>";
      template += "</div>";
      template += "</div>";
      

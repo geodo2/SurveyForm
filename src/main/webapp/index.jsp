@@ -52,6 +52,28 @@
 </head>
 
 <body>
+<%
+
+
+
+	UserDAO userDAO = new UserDAO();
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+		System.out.println(userID);
+	}else{
+		userID = "Guest";
+		System.out.println(userID);
+	}
+	Survey_answer_DAO surveyO = new Survey_answer_DAO();
+	Survey_VO[] survey_data = surveyO.get_usersurvey(userID);	
+	
+
+	
+	int survey_count = survey_data.length;
+
+
+%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -77,44 +99,14 @@
 	
 </div>
 </nav>
-<section class="container">
-		
-
-			<div class="d-flex justify-content-center">
-			<a class="btn btn-outline-primary" data-toggle="modal" href="#registerModal">내가 만든 설문</a>
-			<form method="post" action="./indexed.jsp">
-			<button type="submit" class="btn btn-primary mx-1 mt-2">응답한 설문</button>
-			</form>
-			</div>
-</section>	
-<div class="some">
-	<div class="row">
-		<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-			<div class="titleName">
-				월드컵 경기 관람 수요조사 
-				</div>
-					<div class="when">
-						15 November
-						2022 
-					</div>
-				</div>
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">결과</button>
-				</form>
-			</div>	
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">편집</button>
-				</form>
-			</div>			
-</div>
-<div class="some">
-	<div class="row">
-		<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-			<div class="titleName">
-				축구화 공동구매 
-				</div>
+	
+			
+			<div class="some">
+				<div class="row">
+					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
+						<div class="titleName">
+							축구화 공동구매 
+						</div>
 					<div class="when">
 						15 October
 						2022 
@@ -130,14 +122,14 @@
 					<button type="submit"  class="btn btn-secondary float-right">편집</button>
 				</form>
 			</div>			
-</div>
-<div class="some">
-	<div class="row">
-		<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-			<div class="titleName">
-				길거리 응원 수요조사 
-				</div>
-					<div class="when">
+			</div>
+			<div class="some">
+				<div class="row">
+					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
+						<div class="titleName">
+							길거리 응원 수요조사 
+							</div>
+								<div class="when">
 						23 September
 						2022 
 					</div>
@@ -152,9 +144,68 @@
 					<button type="submit"  class="btn btn-secondary float-right">편집</button>
 				</form>
 			</div>			
-</div>
+	  		</div>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+		
+	  <div id="surveylist" name="surveylist" >
+	      <input type="hidden" name="total" id="total">
+	         <div class="name">
+	        </div>
+	        <section class="container">
+				<div class="d-flex justify-content-center">
+					<a class="btn btn-outline-primary" data-toggle="modal" href="#registerModal">내가 만든 설문</a>
+					<form method="post" action="./indexed.jsp">
+						<button type="submit" class="btn btn-primary mx-1 mt-2">응답한 설문</button>
+					</form>
+				</div>
+			</section>
+<%
+ 	 for(int i=0; i<survey_count; i++)
+ 	 {
 
-				
+%>			
+	<div class="some">
+				<div class="row">
+					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
+						<div class="titleName">
+							월드컵 경기 관람 수요조사 
+							</div>
+								<div class="when">
+									15 November
+									2022 
+								</div>
+							</div>
+						<div class="lookanswer">
+							<form method="post" action="./index.jsp">
+								<button type="submit"  class="btn btn-secondary float-right">결과</button>
+							</form>
+						</div>	
+						<div class="lookanswer">
+							<form method="post" action="./index.jsp">
+								<button type="submit"  class="btn btn-secondary float-right">편집</button>
+							</form>
+						</div>			
+			</div>
+
+ 
+<%
+	 }
+%>      
+   
+
+			       
+	         <div class="footer">
+	            <button type="submit" class="submitBtn">설문제출</button>
+	         </div>	          
+      </div>
+      <script>
+
+      
+      
+   
+      
+      </script>
+      							
 	<div class="modal-footer">
 	<form method="post" action="./makesurvey.jsp">
 	<button type="submit" class="btn btn-success col-10-6 mt-4">설문 만들기</button>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.PrintWriter, java.util.ArrayList, java.net.URLEncoder" %>
-
+<%@ page import='user.UserDAO' %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -213,6 +213,17 @@
 <link rel= "stylesheet" href = "./css/custom.css">
 </head>
 <body>
+<%	
+	UserDAO userDAO = new UserDAO();
+	String userID = null;
+	if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+		System.out.println(userID);
+	}else{
+		userID = "Guest";
+		System.out.println(userID);
+	}
+%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -228,9 +239,22 @@
                   회원관리
                </a>
          <div class="dropdown-menu"  aria-labelledby="dropdown">
-            <a class="dropdown-item" href="userLogin.jsp">로그인</a>
-            <a class="dropdown-item" href="userJoin.jsp">회원가입</a>
-            <a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+<%
+	if(userID == null || userID.equals("Guest")){
+		
+%>
+						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
+						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
+<% 
+	}
+	else{
+		
+%>
+						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+<%
+	}
+%>         
+
          </div>
       </li>
    </ul>
