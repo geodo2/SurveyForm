@@ -315,43 +315,148 @@ pageEncoding="UTF-8"  %>
     		template
          );
     
-    
-     <%
+<%
    	}
    	else if(question_list[i].getSurvey_type().equals("Radio")){
-   		%>
+%>
    	 template="";
      template += "<div class='questionDiv'>";
      template += "<div class='firstSet'>";
      template += "<div></div>";
-     template +=	"<div>";
-     template +=	'<%=question_list[i].getSurvey_content()%>';
-     template +=	"</div>";
-     <%
-     if(question_list[i].getQs_5()==null){
-    	 System.out.println("QS공백입니다ggf");
-     %>	 
-    	 
-    	 
-     <%	 
-     } 
-     %>	 
-     template +=	"<input type='text' class='questionText' name='qs' placeholder='라디오'>"
- 	 template +=	"</div>";
+     template += "<div>";
+     template += '<%=question_list[i].getSurvey_content()%>';
      template += "</div>";
-     template += "</div>";
-     
-     $('#surveyfm').append(
-     		template
-          );
-     
+ 	 template +=	"<div class='questionRadio1'>"                 
+	 template +=	"<div id='survey_option1_1'>"
+	 template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_1'>"
+	 template +=	"<label for='radio1_2'>"
+	 template +=    '<%=question_list[i].getQs_1()%>'
+	 template +=	"</label>"
+	 template +=	"<div onclick='option_del(1,1)' class='optionDelete'>-</div>"
+	 template +=	"</div> "                
+	 template +=	"<div id='survey_option1_2'>"
+	 template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	 template +=	"<label for='radio1_2'>"
+	 template +=    '<%=question_list[i].getQs_2()%>'
+	 template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	 template +=	"</div>"    
+
+<%
+     if(question_list[i].getQs_3()!=null){
+%>	 
+	 template +=	"</div> "                
+	 template +=	"<div id='survey_option1_2'>"
+	 template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	 template +=	"<label for='radio1_2'>"
+	 template +=    '<%=question_list[i].getQs_3()%>'
+	 template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+  
+<%	 
+  	 } 
+%>
+<%
+	if(question_list[i].getQs_4()!=null){
+%>	 
+	template +=	"</div> "                
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_4()%>'
+	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	template +=	"</div>"   
+<%	 
+	 } 
+%>	
+<%
+	if(question_list[i].getQs_5()!=null){
+%>	 
+	template +=	"</div> "                
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_5()%>'
+	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+
+<%	 
+	 } 
+%>	
+<%
+	if(question_list[i].getQs_6()!=null){
+%>	 
+               
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_6()%>'
+	template +=	"</label><div onclick='option_del(1,2)' class='optionDelete'>-</div> "
+	template +=	"</div>"   
+<%	 
+	 } 
+%>	
+<%
+	if(question_list[i].getQs_7()!=null){
+%>	 
+	             
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_7()%>'
+	template +=	"</label> "
+
+<%	 
+	 } 
+%>	
+<%
+if(question_list[i].getQs_8()!=null){
+%>	 
+	              
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_8()%>'
+	template +=	"</label> "
+	template +=	"</div>"   
+<%	 
+	 } 
+%>
+<%
+	if(question_list[i].getQs_9()!=null){
+%>	 
+             
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_9()%>'
+	template +=	"</label> "
+	template +=	"</div>"   
+<%	 
+	 } 
+%>	
+<%
+if(question_list[i].getQs_10()!=null){
+%>	 
+	template +=	"</div> "                
+	template +=	"<div id='survey_option1_2'>"
+	template +=	"<input type='radio' class='radioCircle' name='radioGroup1' id='radio1_2'>"                
+	template +=	"<label for='radio1_2'>"
+	template +=    '<%=question_list[i].getQs_10()%>'
+	template +=	"</label> "
+	template +=	"</div>"   
+<%	 
+	 } 
+%>	
+	template += "</div>";
+	template += "</div>";
+	template += "</div>";     
+	template +=	"</div>" 	
+$('#surveyfm').append(
+ 		template
+    );
    		
-   		
-   		
-   		<%	
+<%	
    	}
    	else if(question_list[i].getSurvey_type().equals("Selection")){
-   		%>
+%>
    	
    		
    	 template="";
