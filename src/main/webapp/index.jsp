@@ -99,55 +99,7 @@
 	
 </div>
 </nav>
-	
-			
-			<div class="some">
-				<div class="row">
-					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-						<div class="titleName">
-							축구화 공동구매 
-						</div>
-					<div class="when">
-						15 October
-						2022 
-					</div>
-				</div>
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">결과</button>
-				</form>
-			</div>	
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">편집</button>
-				</form>
-			</div>			
-			</div>
-			<div class="some">
-				<div class="row">
-					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-						<div class="titleName">
-							길거리 응원 수요조사 
-							</div>
-								<div class="when">
-						23 September
-						2022 
-					</div>
-				</div>
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">결과</button>
-				</form>
-			</div>	
-			<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-					<button type="submit"  class="btn btn-secondary float-right">편집</button>
-				</form>
-			</div>			
-	  		</div>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
-		
-	  <div id="surveylist" name="surveylist" >
+ <div id="surveylist" name="surveylist" >
 	      <input type="hidden" name="total" id="total">
 	         <div class="name">
 	        </div>
@@ -168,11 +120,10 @@
 				<div class="row">
 					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
 						<div class="titleName">
-							월드컵 경기 관람 수요조사 
+							<%=survey_data[i].getSurvey_title()%> 
 							</div>
 								<div class="when">
-									15 November
-									2022 
+									<%=survey_data[i].getReg_date() %>
 								</div>
 							</div>
 						<div class="lookanswer">
@@ -190,12 +141,18 @@
  
 <%
 	 }
-%>      
+%>   	
+			
+			
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+		
+	 
+   
    
 
 			       
 	         <div class="footer">
-	            <button type="submit" class="submitBtn">설문제출</button>
+	
 	         </div>	          
       </div>
       <script>
