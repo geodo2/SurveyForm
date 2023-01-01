@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 pageEncoding="UTF-8"  %>
 <%@ page import="user.*, survey.*" %>
-<%@ page import='java.io.PrintWriter' %>
-
+    <%@ page import="java.io.PrintWriter, java.util.*"%>
+<%@ page import="survey.*, util.*"%>
 
 <%@ page import='user.UserDAO' %>
-<%@ page import='java.lang.reflect.Method' %>
+<%@ page import='java.lang.reflect.Method, java.util.ArrayList' %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,14 +50,14 @@ pageEncoding="UTF-8"  %>
             height:10px;
             float:right;
       }
-	 .profileImg{
+    .profileImg{
          width: 100px;
          float: right;
          margin-left: -30px;
       }
       .createBtn{
-      	 bottom: 60px;
-      	 left:100px;
+          bottom: 60px;
+          left:100px;
          width: 200px;
          position: fixed;
          right:30px;
@@ -200,37 +200,37 @@ pageEncoding="UTF-8"  %>
          bottom: 30px;
       }
 </style>
-	<meta http-equiv="Content-Tyep" content="text/html" charset="UTF-8">
-	<!-- meta data add  -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> 
-	
-	<title>Survey Service</title>
-	<!-- Bootstrap insert -->
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<!-- custom CSS insert -->
-	<link rel="stylesheet" href="../css/custom.css?ver=1">
-	<style type="text/css">
-		a, a:hover{
-			color: #000000;
-			text-decoration: none;
-		}
-	</style>
+   <meta http-equiv="Content-Tyep" content="text/html" charset="UTF-8">
+   <!-- meta data add  -->
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> 
+   
+   <title>Survey Service</title>
+   <!-- Bootstrap insert -->
+   <link rel="stylesheet" href="../css/bootstrap.min.css">
+   <!-- custom CSS insert -->
+   <link rel="stylesheet" href="../css/custom.css?ver=1">
+   <style type="text/css">
+      a, a:hover{
+         color: #000000;
+         text-decoration: none;
+      }
+   </style>
 </head>
 <body>
 <% 
-	Survey_answer_DAO surveyO = new Survey_answer_DAO();
-	int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
-	
-	System.out.println(survey_sid+"123");
-	Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
-	Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
-	int cnt = 0;
-	int question_num = question_list.length;
-	
-	
-		
+   request.setCharacterEncoding("UTF-8");
+   Survey_answer_DAO surveyO = new Survey_answer_DAO();
+   int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
+   
+   System.out.println(survey_sid+"123");
+   Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
+   Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
+   int cnt = 0;
+   int question_num = question_list.length;
+   List<Integer> a_question = new ArrayList<>();
+      
 %>
-    	
+       
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -261,20 +261,22 @@ pageEncoding="UTF-8"  %>
 <div class="middle">
      
       
-      <form id="surveyfm" nmae="surveyfm" method="POST" action="./createSurveyAction.jsp">
-      <input type="hidden" name="total" id="total">
+      <form id="surveyfm" nmae="surveyfm" method="POST" action="./userSubmitAction.jsp">
+
          <div class="name">
           <div class ="titleName"><%=survey_list[0].getSurvey_title()%><div>
          </div>
          </div>
- <%
+         </div>
+          <%
      for(int i=0; i<question_num;i++){
-   	System.out.println(question_list[i].getSurvey_type());
+      System.out.println(question_list[i].getSurvey_type());
 
-   	if(question_list[i].getSurvey_type().equals("Text")){
-    cnt +=1;		
-    	
-    	%>
+      if(question_list[i].getSurvey_type().equals("Text")){
+    	  a_question.add(1);
+    cnt +=1;      
+       
+       %>
 
 <div class='questionDiv'>
    <div class='firstSet'>
@@ -282,156 +284,164 @@ pageEncoding="UTF-8"  %>
    <div>
     <%=question_list[i].getSurvey_content()%>
     </div>
-    <input type='text' class='questionText' name='qs' placeholder='답변을 입력하세요'>
-	<div>
+    <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='답변을 입력하세요'>
+    <%System.out.println("프린트해"+cnt); %>
+   <div>
+   
     </div>
    </div>
    </div> 
-	</div>
+   </div>
+   
 <%
-   	}
-   	else if(question_list[i].getSurvey_type().equals("Radio")){
-	cnt +=1;
+      }
+      else if(question_list[i].getSurvey_type().equals("Radio")){
+    	  a_question.add(2);  
+   cnt +=1;
 %>
- 	
+    <input type= "hidden" name="cnt<%=cnt%>" value="<%=cnt%>">
      <div class='questionDiv'>
      <div class='firstSet'>
     <div></div>
      <div>
      <%=question_list[i].getSurvey_content()%>
+     <%System.out.println("라디오 그룹"+cnt); %>
      </div>
- 	 <div class='questionRadio1'>               
-	 <div id='survey_option1_1'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>>' id='radio1_1' value ='<%=question_list[i].getQs_1()%>'>
-	 <label for='radio1_2'>
-	 <%=question_list[i].getQs_1()%>
-	 </label>
+     <div class='questionRadio1'>               
+    <div id='survey_option1_1'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_1' value ='<%=question_list[i].getQs_1()%>'>
+    <label for='radio1_2'>
+    <%=question_list[i].getQs_1()%>
+    </label>
 
-	 </div>                
-	 <div id='survey_option1_2'>
-	 <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	 <%=question_list[i].getQs_2()%>
-		</label>
-	</div>    
+    </div>                
+    <div id='survey_option1_2'>
+    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_2()%>'>                
+   <label for='radio1_2'>
+    <%=question_list[i].getQs_2()%>
+      </label>
+   </div>    
 
 <%
      if(question_list[i].getQs_3()!=null){
-	
-%>	 
-	 </div>                 
-	 <div id='survey_option1_2'>
-	 <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	 <label for='radio1_2'>
-	 <%=question_list[i].getQs_3()%>
-	 </label> 
+   
+%>    
+    </div>                 
+    <div id='survey_option1_2'>
+    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_3()%>'>                
+    <label for='radio1_2'>
+    <%=question_list[i].getQs_3()%>
+    </label> 
   
-<%	 
-  	 } 
+<%    
+      } 
 %>
 <%
-	if(question_list[i].getQs_4()!=null){
-%>	 
-	</div>                 
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	    <%=question_list[i].getQs_4()%>
-	</label> 
-	</div>   
-<%	 
-	 } 
-%>	
+   if(question_list[i].getQs_4()!=null){
+%>    
+   
+   </div>                 
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_4()%>'>                
+   <label for='radio1_2'>
+       <%=question_list[i].getQs_4()%>
+   </label> 
+   </div>   
+<%    
+    } 
+%>   
 <%
-	if(question_list[i].getQs_5()!=null){
-%>	 
-	</div>                 
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_5()%>
-	</label> 
-
-<%	 
-	 } 
-%>	
+   if(question_list[i].getQs_5()!=null){
+%>    
+   </div>                 
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_5()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_5()%>
+   </label> 
+	</div>
+<%    
+    } 
+%>   
 <%
-	if(question_list[i].getQs_6()!=null){
-%>	 
+   if(question_list[i].getQs_6()!=null){
+%>    
                
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_6()%>
-	</label>
-	</div>  
-<%	 
-	 } 
-%>	
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_6()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_6()%>
+   </label>
+   </div>  
+<%    
+    } 
+%>   
 <%
-	if(question_list[i].getQs_7()!=null){
-%>	 
-	             
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_7()%>
-	</label> 
+   if(question_list[i].getQs_7()!=null){
+%>    
+                
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_7()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_7()%>
+   </label> 
 
-<%	 
-	 } 
-%>	
+<%    
+    } 
+%>   
 <%
 if(question_list[i].getQs_8()!=null){
-%>	 
-	              
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_8()%>
-	</label> 
-	</div>   
-<%	 
-	 } 
+%>    
+                 
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_8()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_8()%>
+   </label> 
+   </div>   
+<%    
+    } 
 %>
 <%
-	if(question_list[i].getQs_9()!=null){
-%>	 
+   if(question_list[i].getQs_9()!=null){
+%>    
             
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_9()%>
-	</label> 
-	</div>   
-<%	 
-	 } 
-%>	
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_9()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_9()%>
+   </label> 
+   </div>   
+<%    
+    } 
+%>   
 <%
 if(question_list[i].getQs_10()!=null){
-%>	 
-	</div>                 
-	<div id='survey_option1_2'>
-	<input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_1()%>'>                
-	<label for='radio1_2'>
-	<%=question_list[i].getQs_10()%>
-	</label> 
-	</div>   
-<%	 
-	 } 
-%>	
-	</div>
-	</div>
-	</div>     
-	
-<%	
-   	}
-   	else if(question_list[i].getSurvey_type().equals("Selection")){
-   	cnt +=1; 
+%>    
+   </div>                 
+   <div id='survey_option1_2'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_10()%>'>                
+   <label for='radio1_2'>
+   <%=question_list[i].getQs_10()%>
+   </label> 
+   </div>   
+<%    
+    } 
+%>   
+   </div>
+   </div>
+  	</div>
+   
+<%   
+      }
+      else if(question_list[i].getSurvey_type().equals("Selection")){
+      cnt +=1; 
+ 
+      a_question.add(3);
 %>
-   	
-   		
-   	 
+      
+         
+       
     <div class='questionDiv'>
      <div class='firstSet'>
      <div></div>
@@ -440,40 +450,96 @@ if(question_list[i].getQs_10()!=null){
      </div>
   
      <div class='questioncheckbox'>
-   	 <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup' id='checkbox' > 
-	<label for='checkbox'><input class='optionBox' type='text' placeholder='선택지1' name='qs_'></label>
-	<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup' id='checkbox'>
-	<label for='checkbox'><input class='optionBox' type='text' placeholder='선택지2' name='qs_'></label>
- 	</div>
+       <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>>' id='checkbox' value='<%=question_list[i].getQs_1()%>' > 
+   <label for='checkbox'><%=question_list[i].getQs_1()%></label>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_2()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_2()%></label>
+<%if(question_list[i].getQs_3()!=null){ %>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_3()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_3()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_4()!=null){	
+%> 
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_4()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_4()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_5()!=null){
+%>   
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_5()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_5()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_6()!=null){	
+%> 
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_6()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_6()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_7()!=null){
+%>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_7()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_7()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_8()!=null){
+%>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_8()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_8()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_9()!=null){
+%>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_9()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_9()%></label>
+   </div>
+<%
+}
+if(question_list[i].getQs_10()!=null){
+%>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_10()%>'>
+   <label for='checkbox'><%=question_list[i].getQs_10()%></label>
+   </div>   
+<%
+}
+%>   
+    </div>
+    
    </div>                  
-   </div>           	 
+   </div>               
      </div>
      </div>
     
   
      
    
-   		
-   		<%
-    }
-   	}
-   	%> 
-  
-   	
-	
-   
-   </script>
          
+         <%
+    }
+      }
+      %> 
+      	 <input type="hidden" name="type_array" id="total" value= "<%=a_question%>">	
+  		 <input type="hidden" name="total" id="total" value= "<%=cnt%>">
          <div class="footer">
+               
             <button type="submit" class="submitBtn">설문제출</button>
          </div>
-          
-      </form>
-    
+           </form>
+ 
+  
+        
+     
+     
     
 
-	
-	
+   
+   
 </body>
 </html>
-

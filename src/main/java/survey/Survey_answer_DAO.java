@@ -143,7 +143,8 @@ public class Survey_answer_DAO extends DatabaseUtil {
 
 			rs = pstmt.executeQuery();
 			int i = 0;
-			while(rs.next() ){ // get survey content
+			while(rs.next() ){
+				// get survey content
 				getsurvey[i] =new Survey_VO(
 						rs.getInt(1),
 						rs.getString(2),
@@ -160,6 +161,58 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		return getsurvey;
 	}
 	
+	
+	public void insert_answer( int survey_seq, int question_seq, String content, String date, String user,
+			String qs_1,String qs_2,String qs_3,String qs_4,String qs_5,String qs_6,String qs_7,String qs_8,String qs_9,String qs_10) {
+		System.out.println("호출은 되더라구");
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		int seq=1;
+		String sql="select answer_seq from survey_answer order by answer_seq desc";
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				seq=rs.getInt("answer_seq");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		seq=seq+1;
+		System.out.println(seq+"seq갑 체크합니다잉");
+		
+		sql="insert into survey_answer(answer_seq,survey_seq,question_seq,answer_content,reg_data,user_id,qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10)";
+		sql+=" values(?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+	
+	
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			pstmt.setInt(2, survey_seq);
+			pstmt.setInt(3, question_seq);
+			pstmt.setString(4, content);
+			pstmt.setString(5, user);
+			pstmt.setString(6, qs_1);
+			pstmt.setString(7, qs_2);
+			pstmt.setString(8, qs_3);
+			pstmt.setString(9, qs_4);
+			pstmt.setString(10, qs_5);
+			pstmt.setString(11, qs_6);
+			pstmt.setString(12, qs_7);
+			pstmt.setString(13, qs_8);
+			pstmt.setString(14, qs_9);
+			pstmt.setString(15, qs_10);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	

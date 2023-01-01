@@ -5,7 +5,7 @@ public class Survey_answer_VO {
 	private int survey_seq;
 	private int question_seq;
 	private String answer_content;
-	private String reg_date;
+	private String reg_data;
 	private String user_id;
     private String qs_1;
     private String qs_2;
@@ -19,14 +19,14 @@ public class Survey_answer_VO {
     private String qs_10;
    	
 	public Survey_answer_VO() {}
-	public Survey_answer_VO(int seq, int survey_seq, int question_seq, String content, String date, String user,
+	public Survey_answer_VO(int seq, int survey_seq, int question_seq, String content, String data, String user,
 			String qs_1, String qs_2, String qs_3, String qs_4, String qs_5, String qs_6,
 			   String qs_7, String qs_8, String qs_9, String qs_10) {
 		this.answer_seq=seq;
 		this.survey_seq=survey_seq;
 		this.question_seq=question_seq;
 		this.answer_content=content;
-		this.reg_date=date;
+		this.reg_data=data;
 		this.user_id=user;
 	    this.qs_1=qs_1;
 	    this.qs_2=qs_2;
@@ -64,11 +64,11 @@ public class Survey_answer_VO {
 	public void setAnswer_content(String answer_content) {
 		this.answer_content = answer_content;
 	}
-	public String getReg_date() {
-		return reg_date;
+	public String getReg_data() {
+		return reg_data;
 	}
-	public void setReg_date(String reg_date) {
-		this.reg_date = reg_date;
+	public void setReg_data(String reg_data) {
+		this.reg_data = reg_data;
 	}
 	public String getUser_id() {
 		return user_id;
