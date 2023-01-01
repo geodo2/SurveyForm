@@ -162,7 +162,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 	}
 	
 	
-	public void insert_answer( int survey_seq, int question_seq, String content, String date, String user,
+	public void insert_answer( int survey_seq, int question_seq, String content, String user,
 			String qs_1,String qs_2,String qs_3,String qs_4,String qs_5,String qs_6,String qs_7,String qs_8,String qs_9,String qs_10) {
 		System.out.println("호출은 되더라구");
 		Connection conn = null;

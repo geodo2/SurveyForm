@@ -221,7 +221,7 @@ pageEncoding="UTF-8"  %>
    request.setCharacterEncoding("UTF-8");
    Survey_answer_DAO surveyO = new Survey_answer_DAO();
    int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
-   
+   String sid_num =request.getParameter("survey_num");
    System.out.println(survey_sid+"123");
    Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
    Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
@@ -253,7 +253,7 @@ pageEncoding="UTF-8"  %>
       </li>
    </ul>
         
-</div>ㅇ
+</div>
 
 </nav>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -450,7 +450,7 @@ if(question_list[i].getQs_10()!=null){
      </div>
   
      <div class='questioncheckbox'>
-       <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>>' id='checkbox' value='<%=question_list[i].getQs_1()%>' > 
+       <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value='<%=question_list[i].getQs_1()%>' > 
    <label for='checkbox'><%=question_list[i].getQs_1()%></label>
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_2()%>'>
    <label for='checkbox'><%=question_list[i].getQs_2()%></label>
@@ -525,6 +525,7 @@ if(question_list[i].getQs_10()!=null){
     }
       }
       %> 
+      	 <input type="hidden" name="sid" value= "<%=sid_num%>">
       	 <input type="hidden" name="type_array" id="total" value= "<%=a_question%>">	
   		 <input type="hidden" name="total" id="total" value= "<%=cnt%>">
          <div class="footer">
