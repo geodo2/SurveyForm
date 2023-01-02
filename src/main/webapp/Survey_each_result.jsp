@@ -224,10 +224,16 @@ pageEncoding="UTF-8"  %>
    String sid_num =request.getParameter("survey_num");
    Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
    Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
+   System.out.println(survey_sid);
+   String submitted_user=request.getParameter("user_id");
+   System.out.println(submitted_user);
    int cnt = 0;
    int question_num = question_list.length;
    List<Integer> a_question = new ArrayList<>();
-      
+   //답변
+   Survey_answer_VO[] survey_answer= surveyO.survey_answer(survey_sid, submitted_user);
+   System.out.println(survey_answer[2].getAnswer_content()+"flag wo check");  
+         
 %>
        
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -283,7 +289,7 @@ pageEncoding="UTF-8"  %>
    <div>
     <%=question_list[i].getSurvey_content()%>
     </div>
-    <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='답변을 입력하세요'>
+    답변보기: <%=survey_answer[i].getAnswer_content()%>
   
    <div>
    

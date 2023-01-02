@@ -58,11 +58,15 @@
 <body>
 <% 
    request.setCharacterEncoding("UTF-8");
-   int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
-   String sid_num =request.getParameter("survey_num");
 
-   System.out.println(survey_sid);
-      
+   String sid_num =request.getParameter("survey_num");
+   int sid_number = Integer.parseInt(sid_num);
+   Survey_answer_DAO surveyO = new Survey_answer_DAO();
+   Survey_answer_list_VO[] answer_list = surveyO.answer_list(sid_number);	
+	System.out.println(answer_list[0].getReg_data());
+	System.out.println(answer_list[0].getUser_id());
+	int answer_count = answer_list.length; 
+
 %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
@@ -87,5 +91,33 @@
 	</ul>
 </div>
 </nav>
+<%
+ 	 for(int i=0; i<answer_count; i++)
+ 	 {
+		
+%>			
+	<div class="some">
+				<div class="row">
+					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
+						<div class="titleName">
+							<%=answer_list[i].getUser_id()%>
+							</div>
+								<div class="when">
+						<%=answer_list[0].getReg_data()%>
+								</div>
+							</div>
+						
+						<div class="lookanswer">
+							<form method="post" action="./Survey_each_result.jsp?survey_num=<%=sid_number%>&&user_id=<%=answer_list[i].getUser_id()%>">
+								<button type="submit"  class="btn btn-secondary float-right">응답 확인</button>
+							</form>
+						</div>
+							
+			</div>
+
+ 
+<%
+	 }
+%>  
 </body>
 </html>

@@ -15,7 +15,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 	
 	
 	public Survey_question_VO[] question_data(int survey_seq) {
-		System.out.println("here");
+
 		Survey_question_VO[] newsurvey = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -36,8 +36,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 			}
 			
 			newsurvey = new Survey_question_VO[count];
-			System.out.println(count);
-			System.out.println("here");
+		
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1,survey_seq);
 
@@ -69,7 +68,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		return newsurvey;
 	}
 	public Survey_VO[] question_list_data(int survey_seq) {
-		System.out.println("here");
+		
 		Survey_VO[] newsurvey = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -90,8 +89,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 			}
 			
 			newsurvey = new Survey_VO[count];
-			System.out.println(count);
-			System.out.println("here");
+		
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1,survey_seq);
 
@@ -115,7 +113,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 	}
 	
 	public Survey_VO[] get_usersurvey(String userid) {
-		System.out.println("here");
+		
 		Survey_VO[] getsurvey = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -136,8 +134,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 			}
 			
 			getsurvey = new Survey_VO[count];
-			System.out.println(count);
-			System.out.println("here");
+	
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1,userid);
 
@@ -164,7 +161,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 	
 	public void insert_answer( int survey_seq, int question_seq, String content, String user,
 			String qs_1,String qs_2,String qs_3,String qs_4,String qs_5,String qs_6,String qs_7,String qs_8,String qs_9,String qs_10) {
-		System.out.println("호출은 되더라구");
+
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;
@@ -181,7 +178,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 			e.printStackTrace();
 		}
 		seq=seq+1;
-		System.out.println(seq+"seq갑 체크합니다잉");
+		
 		
 		sql="insert into survey_answer(answer_seq,survey_seq,question_seq,answer_content,reg_data,user_id,qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10)";
 		sql+=" values(?,?,?,?,now(),?,?,?,?,?,?,?,?,?,?,?)";
@@ -214,7 +211,7 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		
 	}
 	public void insert_answer_list( int survey_seq, String user) {
-		System.out.println("호출은 되더라구");
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs=null;
@@ -230,8 +227,8 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(seq+"seq갑 체크합니다잉");
+		seq=seq+1;
+
 		
 		sql="insert into survey_answer_list(survey_answer_seq,survey_seq,reg_date,user_id)";
 		sql+=" values(?,?,now(),?)";
@@ -252,8 +249,105 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		
 	}
 	
-	
-	
+	public Survey_answer_list_VO[] answer_list(int survey_seq) {
+		
+		Survey_answer_list_VO[] survey_answer = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM Survey_answer_list WHERE survey_seq = ?;";
+		String countQuery = "SELECT count(*) FROM Survey_answer_list WHERE survey_seq = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			survey_answer = new Survey_answer_list_VO[count];
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				survey_answer[i] =new Survey_answer_list_VO(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getString(3),
+						rs.getString(4)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return survey_answer;
+	}
+	public Survey_answer_VO[] survey_answer(int survey_seq,String user_id) {
+			
+			Survey_answer_VO[] show_answer = null;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs=null;
+			
+			String query = "SELECT * FROM survey_answer WHERE survey_seq = ? and user_id = ?;";
+			String countQuery = "SELECT count(*) FROM survey_answer WHERE survey_seq = ? and user_id = ?;";
+			int count = 0;
+			try {
+				conn = DatabaseUtil.getConnection();
+				pstmt = conn.prepareStatement(countQuery);
+				pstmt.setInt(1,survey_seq);
+				pstmt.setString(2,user_id);
+				rs = pstmt.executeQuery();
+				if(rs.next())
+				{
+					count = rs.getInt(1);
+				}
+				
+				show_answer = new Survey_answer_VO[count];
+				
+				pstmt = conn.prepareStatement(query);
+				pstmt.setInt(1,survey_seq);
+				pstmt.setString(2,user_id);
+				rs = pstmt.executeQuery();
+				int i = 0;
+				while(rs.next() ){ // get survey content
+					show_answer[i] =new Survey_answer_VO(
+							rs.getInt(1),
+							rs.getInt(2),
+							rs.getInt(3),
+							rs.getString(4),
+							rs.getString(5),
+							rs.getString(6),
+							rs.getString(7),
+							rs.getString(8),
+							rs.getString(9),
+							rs.getString(10),
+							rs.getString(11),
+							rs.getString(12),
+							rs.getString(13),
+							rs.getString(14),
+							rs.getString(15),
+							rs.getString(16)
+							
+							);
+					i++;
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			return show_answer;
+		}
 	
 	
 }

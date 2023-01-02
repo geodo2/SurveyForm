@@ -13,8 +13,6 @@ public class Survey_answer_list_VO {
 		this.survey_seq=survey_seq;
 		this.reg_data=data;
 		this.user_id=user;
-
-	      		
 	}
 	public void setAnswer_seq(int answer_seq) {
 		this.survey_answer_seq = answer_seq;
