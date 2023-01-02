@@ -213,6 +213,44 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		}
 		
 	}
+	public void insert_answer_list( int survey_seq, String user) {
+		System.out.println("호출은 되더라구");
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		int seq=1;
+		String sql="select survey_answer_seq from survey_answer_list order by survey_answer_seq desc";
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				seq=rs.getInt("survey_answer_seq");
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(seq+"seq갑 체크합니다잉");
+		
+		sql="insert into survey_answer_list(survey_answer_seq,survey_seq,reg_date,user_id)";
+		sql+=" values(?,?,now(),?)";
+		try {
+	
+	
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, seq);
+			pstmt.setInt(2, survey_seq);
+			pstmt.setString(3,user);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	

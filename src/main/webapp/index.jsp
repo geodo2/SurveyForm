@@ -14,7 +14,7 @@
     	}
         .some{ 
         	  background-color: F1F1F1;
-        	  width:1000px;'
+        	  width:1500px;'
 			  color: white;
 			  border: 2px solid black;
 			  margin: 70px;
@@ -40,6 +40,11 @@
 	    left: px;
 	    top:-43px;
 	    margin-right:30px;
+		}
+		.make-btn {
+	    color: #fff;
+	    background-color: tomato;
+	    border-color: #28a745;
 		}       
   </style>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -126,16 +131,17 @@
 									<%=survey_data[i].getReg_date() %>
 								</div>
 							</div>
+						
 						<div class="lookanswer">
-							<form method="post" action="./index.jsp">
-								<button type="submit"  class="btn btn-secondary float-right">결과</button>
+							<form method="post" action="./Survey_result.jsp?survey_num=<%=survey_data[i].getSeq()%>">
+								<button type="submit"  class="btn btn-secondary float-right">설문 결과</button>
 							</form>
-						</div>	
+						</div>
 						<div class="lookanswer">
-							<form method="post" action="./index.jsp">
-								<button type="submit"  class="btn btn-secondary float-right">편집</button>
+							<form method="post" action="./usersurvey.jsp?survey_num=<%=survey_data[i].getSeq()%>">
+								<button type="submit"  class="btn btn-secondary float-right">설문 확인</button>
 							</form>
-						</div>			
+						</div>		
 			</div>
 
  
@@ -165,7 +171,7 @@
       							
 	<div class="modal-footer">
 	<form method="post" action="./makesurvey.jsp">
-	<button type="submit" class="btn btn-success col-10-6 mt-4">설문 만들기</button>
+	<button type="submit" class="btn make-btn col-10-6 mt-4">설문 만들기</button>
 	</form>
 	
 	</div>

@@ -9,13 +9,9 @@ PrintWriter script = response.getWriter();
 String[]test_value = request.getParameterValues("checkboxGroup1");
 String question_count = request.getParameter("total");
 
-
-
 //설문지 번호
 int survey_sid=0;
 String sid = request.getParameter("sid");
-
-
 survey_sid= Integer.parseInt(sid);
 
 String[] question_type=request.getParameterValues("type_array");
@@ -99,14 +95,16 @@ for( String val:question_type){
 		}
 		j=j+3;
 	}
-		System.out.println(val.charAt(3));
+	
+	surveyO.insert_answer_list(survey_sid,"holiday1883");	
 	
 }
+
 
 System.out.println(question_type.length);
 script.println("<script>");
 script.println("alert('정상등록되었습니다.')");
-script.println("history.back();");
+script.println("location.href='index.jsp'");
 script.println("</script>");
 
 %>
