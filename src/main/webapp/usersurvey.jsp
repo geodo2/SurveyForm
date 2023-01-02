@@ -222,7 +222,6 @@ pageEncoding="UTF-8"  %>
    Survey_answer_DAO surveyO = new Survey_answer_DAO();
    int survey_sid = Integer.parseInt(request.getParameter("survey_num"));
    String sid_num =request.getParameter("survey_num");
-   System.out.println(survey_sid+"123");
    Survey_VO[] survey_list = surveyO.question_list_data(survey_sid);
    Survey_question_VO[] question_list = surveyO.question_data(survey_sid);
    int cnt = 0;
@@ -285,7 +284,7 @@ pageEncoding="UTF-8"  %>
     <%=question_list[i].getSurvey_content()%>
     </div>
     <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='답변을 입력하세요'>
-    <%System.out.println("프린트해"+cnt); %>
+  
    <div>
    
     </div>
@@ -305,7 +304,7 @@ pageEncoding="UTF-8"  %>
     <div></div>
      <div>
      <%=question_list[i].getSurvey_content()%>
-     <%System.out.println("라디오 그룹"+cnt); %>
+  
      </div>
      <div class='questionRadio1'>               
     <div id='survey_option1_1'>
@@ -450,61 +449,61 @@ if(question_list[i].getQs_10()!=null){
      </div>
   
      <div class='questioncheckbox'>
-       <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value='<%=question_list[i].getQs_1()%>' > 
+       <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value='1' > 
    <label for='checkbox'><%=question_list[i].getQs_1()%></label>
-   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_2()%>'>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '2'>
    <label for='checkbox'><%=question_list[i].getQs_2()%></label>
 <%if(question_list[i].getQs_3()!=null){ %>
-   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_3()%>'>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '3'>
    <label for='checkbox'><%=question_list[i].getQs_3()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_4()!=null){	
 %> 
-   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_4()%>'>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '4'>
    <label for='checkbox'><%=question_list[i].getQs_4()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_5()!=null){
 %>   
-   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_5()%>'>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '5'>
    <label for='checkbox'><%=question_list[i].getQs_5()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_6()!=null){	
 %> 
-   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_6()%>'>
+   <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '6'>
    <label for='checkbox'><%=question_list[i].getQs_6()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_7()!=null){
 %>
-<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_7()%>'>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '7'>
    <label for='checkbox'><%=question_list[i].getQs_7()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_8()!=null){
 %>
-<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_8()%>'>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '8'>
    <label for='checkbox'><%=question_list[i].getQs_8()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_9()!=null){
 %>
-<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_9()%>'>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '9'>
    <label for='checkbox'><%=question_list[i].getQs_9()%></label>
    </div>
 <%
 }
 if(question_list[i].getQs_10()!=null){
 %>
-<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '<%=question_list[i].getQs_10()%>'>
+<div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '10'>
    <label for='checkbox'><%=question_list[i].getQs_10()%></label>
    </div>   
 <%

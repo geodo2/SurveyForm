@@ -10,9 +10,11 @@ String[]test_value = request.getParameterValues("checkboxGroup1");
 String question_count = request.getParameter("total");
 
 
+
+//설문지 번호
 int survey_sid=0;
 String sid = request.getParameter("sid");
-System.out.println(sid+"sid번호");
+
 
 survey_sid= Integer.parseInt(sid);
 
@@ -34,26 +36,66 @@ for( String val:question_type){
 	
 	int j=1;
 	for(int i=1; i<=question_int; i++){
-		
-
+		String qs_1="";
+		String qs_2="";
+		String qs_3="";
+		String qs_4="";
+		String qs_5="";
+		String qs_6="";
+		String qs_7="";
+		String qs_8="";
+		String qs_9="";
+		String qs_10="";	
 		if(val.charAt(j) == '1'){
 			
 			String text_answer = request.getParameter("survey_text"+i);
 			int question_num=1+i;
-			surveyO.insert_answer(survey_sid,question_int,text_answer,"holiday1883",null,null,null,null,null,null,null,null,null,null);
+			surveyO.insert_answer(survey_sid,i,text_answer,"holiday1883",null,null,null,null,null,null,null,null,null,null);
 		}
 		else if(val.charAt(j) == '2'){
 			
 			String radio_answer = request.getParameter("radioGroup"+i);
-			surveyO.insert_answer(survey_sid,question_int,radio_answer,"holiday1883","radio",null,null,null,null,null,null,null,null,null);
+			surveyO.insert_answer(survey_sid,i,radio_answer,"holiday1883","radio",null,null,null,null,null,null,null,null,null);
 		}
 		else if(val.charAt(j) =='3'){	
 			
 			String[] checkbox = request.getParameterValues("checkboxGroup"+i);
 			for(String check:checkbox){
-				System.out.println(check);
+				System.out.println(check+"value 값을 바꾼 상황");
+				if(check.equals("1")){
+					 qs_1=check;
+					System.out.println(qs_1+"qs1 값");
+				}
+				else if(check.equals("2")){
+					 qs_2=check;
+				}
+				else if(check.equals("3")){
+					 qs_3=check;
+				}
+				else if(check.equals("4")){
+					 qs_4=check;
+				}
+				else if(check.equals("5")){
+					 qs_5=check;
+				}
+				else if(check.equals("6")){
+					 qs_6=check;
+				}
+				else if(check.equals("7")){
+					 qs_7=check;
+				}
+				else if(check.equals("8")){
+					 qs_8=check;
+				}
+				else if(check.equals("9")){
+					 qs_9=check;
+				}
+				else if(check.equals("10")){
+					 qs_10=check;
+				}								
 			}
-//surveyO.insert_answer(survey_sid,question_int,"checkbox","holiday1883",qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10);			
+			surveyO.insert_answer(survey_sid,i,"checkbox","holiday1883",qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10);			
+
 		}
 		j=j+3;
 	}
