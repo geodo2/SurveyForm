@@ -35,7 +35,7 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 질문 타입별로 다른 방식으로 Admin이 결과페이지를 설계할 수 있습니다.
 
 질문에 대한 프로그래밍적 요소를 사용하려면 <q>질문1<p>라고 입력하면됩니다. 
-또한 기본적인 <h1>,<p>,<br> 과 같은 기본적인 태그로 결과페이지를 꾸밀 수 있습니다. 
+또한 기본적인 h1,p,br 과 같은 기본적인 태그로 결과페이지를 꾸밀 수 있습니다. 
 
 단답형의 경우 해당 응답자의 답변을 그대로 사용할 수 있고 Admin이 새로운 변수를 추가할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/94734394/210292315-b5dc9cf9-72d8-424f-b77a-583c5ac9133f.png)
