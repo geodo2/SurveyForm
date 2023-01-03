@@ -46,12 +46,12 @@ for( String val:question_type){
 			
 			String text_answer = request.getParameter("survey_text"+i);
 			int question_num=1+i;
-			surveyO.insert_answer(survey_sid,i,text_answer,"holiday1883",null,null,null,null,null,null,null,null,null,null);
+			surveyO.insert_answer(survey_sid,i,text_answer,userID,null,null,null,null,null,null,null,null,null,null);
 		}
 		else if(val.charAt(j) == '2'){
 			
 			String radio_answer = request.getParameter("radioGroup"+i);
-			surveyO.insert_answer(survey_sid,i,radio_answer,"holiday1883","radio",null,null,null,null,null,null,null,null,null);
+			surveyO.insert_answer(survey_sid,i,radio_answer,userID,"radio",null,null,null,null,null,null,null,null,null);
 		}
 		else if(val.charAt(j) =='3'){	
 			
@@ -90,21 +90,20 @@ for( String val:question_type){
 					 qs_10=check;
 				}								
 			}
-			surveyO.insert_answer(survey_sid,i,"checkbox","holiday1883",qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10);			
+			surveyO.insert_answer(survey_sid,i,"checkbox",userID,qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10);			
 
 		}
 		j=j+3;
 	}
 	
-	surveyO.insert_answer_list(survey_sid,"holiday1883");	
+	surveyO.insert_answer_list(survey_sid,userID);	
 	
 }
 
 
 System.out.println(question_type.length);
 script.println("<script>");
-script.println("alert('정상등록되었습니다.')");
-script.println("location.href='index.jsp'");
+script.println("location.href='index.jsp");
 script.println("</script>");
-
 %>
+

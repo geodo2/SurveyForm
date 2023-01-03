@@ -69,17 +69,16 @@ for(int i=0; i< cnt.size(); i++){
 }
 
 Survey_DAO sDAO = new Survey_DAO();
+int sid=0;
+sid =sDAO.insert_survey(survey,question);
 
-sDAO.insert_survey(survey,question);
-
-script.println("<script>");
-script.println("alert('정상등록되었습니다.')");
-script.println("history.back();");
-script.println("</script>");
 
 %>
 
-
+<script>
+alert('정상등록되었습니다.');
+location.href='resultPrograming.jsp?survey_num='+<%=sid%>;
+</script>
 
 
 

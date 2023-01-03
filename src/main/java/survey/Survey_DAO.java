@@ -12,7 +12,7 @@ import util.DatabaseUtil;
 public class Survey_DAO {
 
 	
-	public void insert_survey(Survey_VO survey, List<Survey_question_VO> question) {
+	public int insert_survey(Survey_VO survey, List<Survey_question_VO> question) {
 		String sql = "insert into survey_list(survey_title,reg_date,num_of_item,userID) values(?,now(),?,?)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -66,6 +66,7 @@ public class Survey_DAO {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+		return seq;
 		
 	}
 }
