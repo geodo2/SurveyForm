@@ -103,7 +103,7 @@ for( String val:question_type){
 
 System.out.println(question_type.length);
 script.println("<script>");
-script.println("location.href='index.jsp");
+script.println("location.href='index.jsp'");
 script.println("</script>");
 %>
 

@@ -348,6 +348,64 @@ public class Survey_answer_DAO extends DatabaseUtil {
 			
 			return show_answer;
 		}
+	public void result_conntent_insert(int sid, String content){
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		String sql="insert into result_content(sid,content)";
+		sql+=" values(?,?)";
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sid);
+			pstmt.setString(2,content);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void insert_result_var( int sid, int question_seq, String q_type,
+			String qs_1,String qs_2,String qs_3,String qs_4,String qs_5,String qs_6,String qs_7,String qs_8,String qs_9,String qs_10) {
+
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		
+		
+		
+		String sql="insert into result_var(sid,question_seq,q_type,qs_1,qs_2,qs_3,qs_4,qs_5,qs_6,qs_7,qs_8,qs_9,qs_10)";
+		sql+=" values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+	
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sid);
+			pstmt.setInt(2, question_seq);
+			pstmt.setString(3, q_type);;
+			pstmt.setString(4, qs_1);
+			pstmt.setString(5, qs_2);
+			pstmt.setString(6, qs_3);
+			pstmt.setString(7, qs_4);
+			pstmt.setString(8, qs_5);
+			pstmt.setString(9, qs_6);
+			pstmt.setString(10, qs_7);
+			pstmt.setString(11, qs_8);
+			pstmt.setString(12, qs_9);
+			pstmt.setString(13, qs_10);
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 }

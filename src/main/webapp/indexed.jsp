@@ -37,8 +37,15 @@
 	    left: px;
 	    top:-43px;
 		}
-		
-  
+		.make-btn {
+	    color: #fff;
+	    background-color: tomato;
+	    border-color: #28a745;
+		}    
+  		.bt_col {
+	     background-color: #A4B2FF;
+         color: white;
+		}   
         
     </style>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -80,7 +87,7 @@
 			
 			<div class="d-flex justify-content-center">
 			<form method="post" action="./index.jsp">
-			<button type="submit" class="btn btn-primary mx-1 mt-2">내가 만든 설문</button>
+			<button type="submit" class="btn bt_col mx-1 mt-2">내가 만든 설문</button>
 			
 			
 			</form>
@@ -145,7 +152,7 @@
 			</div>
 	<div class="modal-footer">
 	<form method="post" action="./makesurvey.jsp">
-	<button type="submit" class="btn btn-success col-10-6 mt-4">설문 만들기</button>
+	<button type="submit" class="btn make-btn col-10-6 mt-4">설문 만들기</button>
 	</form>
 	
 	</div>

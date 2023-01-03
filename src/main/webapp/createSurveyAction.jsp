@@ -76,7 +76,7 @@ sid =sDAO.insert_survey(survey,question);
 %>
 
 <script>
-alert('정상등록되었습니다.');
+
 location.href='resultPrograming.jsp?survey_num='+<%=sid%>;
 </script>
 

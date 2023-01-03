@@ -280,13 +280,13 @@ pageEncoding="UTF-8"  %>
 <div class="middle">
      
       
-      <form id="surveyfm" nmae="surveyfm" method="POST" action="./userSubmitAction.jsp">
+      <form id="surveyfm" nmae="surveyfm" method="POST" action="./resultAction.jsp?survey_num=<%=survey_sid%>">
 
         <div class ="titleName">결과 페이지 제작</div>
-		<textarea  class="text_area" placeholder='ex)
+		<textarea  class="text_area" name="text_content" placeholder='ex)
 <h1><%=survey_list[0].getSurvey_title()%><h1>
 <q>질문1<q>님 응답해주셔서 감사합니다.
-고르신 항목은 <q>질문2<q>입니다.'></textarea>
+고르신 항목은 <q>질문2<q>입니다.' ></textarea>
 
          </div>
     
@@ -319,7 +319,7 @@ pageEncoding="UTF-8"  %>
       }
       else if(question_list[i].getSurvey_type().equals("Radio")){
     	  a_question.add(2);  
-   cnt +=1;
+      cnt +=1;
 %>
 	 <p class="surveyKind">질문<%=cnt%></p>
     <input type= "hidden" name="cnt<%=cnt%>" value="<%=cnt%>">
@@ -334,14 +334,14 @@ pageEncoding="UTF-8"  %>
     <div id='survey_option1_1'>
       <label for='radio1_2'>
     <%=question_list[i].getQs_1()%>=
-    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_1">
     </label>
 
     </div>                
     <div id='survey_option1_2'>
      <label for='radio1_2'>
     <%=question_list[i].getQs_2()%>=
-    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_2">
       </label>
    </div>    
 
@@ -353,7 +353,7 @@ pageEncoding="UTF-8"  %>
     <div id='survey_option1_2'>
       <label for='radio1_2'>
     <%=question_list[i].getQs_3()%>=
-    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+    <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_3">
     </label> 
   
 <%    
@@ -367,7 +367,7 @@ pageEncoding="UTF-8"  %>
    <div id='survey_option1_2'>
     <label for='radio1_2'>
        <%=question_list[i].getQs_4()%>=
-       <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+       <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_4">
    </label> 
    </div>   
 <%    
@@ -380,7 +380,7 @@ pageEncoding="UTF-8"  %>
    <div id='survey_option1_2'>
     <label for='radio1_2'>
    <%=question_list[i].getQs_5()%>=
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_5">
    
    </label> 
 	</div>
@@ -394,7 +394,7 @@ pageEncoding="UTF-8"  %>
    <div id='survey_option1_2'>
     <label for='radio1_2'>
    <%=question_list[i].getQs_6()%>=
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_6">
    </label>
    </div>  
 <%    
@@ -407,7 +407,7 @@ pageEncoding="UTF-8"  %>
    <div id='survey_option1_2'>
      <label for='radio1_2'>
    <%=question_list[i].getQs_7()%>=
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_7">
    </label> 
 
 <%    
@@ -420,7 +420,7 @@ if(question_list[i].getQs_8()!=null){
    <div id='survey_option1_2'>
    <label for='radio1_2'>
    <%=question_list[i].getQs_8()%>=
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_8">
    </label> 
    </div>   
 <%    
@@ -433,7 +433,7 @@ if(question_list[i].getQs_8()!=null){
    <div id='survey_option1_2'>
     <label for='radio1_2'>
    <%=question_list[i].getQs_9()%>=
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_9">
    </label> 
    </div>   
 <%    
@@ -446,7 +446,7 @@ if(question_list[i].getQs_10()!=null){
    <div id='survey_option1_2'>
     <label for='radio1_2'>
    <%=question_list[i].getQs_10()%> =
-   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc">
+   <input class="optionBox" type="text" placeholder="결과 페이지 내용" name="abc<%=cnt%>_10">
    </label> 
    </div>   
 <%    
@@ -476,16 +476,16 @@ if(question_list[i].getQs_10()!=null){
      <div class='questioncheckbox'>
        <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value='1' > 
    <label for='checkbox'><%=question_list[i].getQs_1()%> 
-      <input class="optionBox" type="text" placeholder="1개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="1개 항목 선택시" name="def<%=cnt%>_1">
    </label>
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '2'>
    <label for='checkbox'><%=question_list[i].getQs_2()%>
-   <input class="optionBox" type="text" placeholder="2개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="2개 항목 선택시" name="def<%=cnt%>_2">
    </label>
 <%if(question_list[i].getQs_3()!=null){ %>
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '3'>
    <label for='checkbox'><%=question_list[i].getQs_3()%>
-   <input class="optionBox" type="text" placeholder="3개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="3개 항목 선택시" name="def<%=cnt%>_3">
    </label>
    </div>
 <%
@@ -494,7 +494,7 @@ if(question_list[i].getQs_4()!=null){
 %> 
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '4'>
    <label for='checkbox'><%=question_list[i].getQs_4()%>
-   <input class="optionBox" type="text" placeholder="4개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="4개 항목 선택시" name="def<%=cnt%>_4">
    </label>
    </div>
 <%
@@ -503,7 +503,7 @@ if(question_list[i].getQs_5()!=null){
 %>   
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '5'>
    <label for='checkbox'><%=question_list[i].getQs_5()%>
-   <input class="optionBox" type="text" placeholder="5개 항목 선택시" name="def"></label>
+   <input class="optionBox" type="text" placeholder="5개 항목 선택시" name="def<%=cnt%>_5"></label>
    </div>
 <%
 }
@@ -511,7 +511,7 @@ if(question_list[i].getQs_6()!=null){
 %> 
    <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '6'>
    <label for='checkbox'><%=question_list[i].getQs_6()%>
-   <input class="optionBox" type="text" placeholder="6개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="6개 항목 선택시" name="def<%=cnt%>_6">
    </label>
    </div>
 <%
@@ -520,7 +520,7 @@ if(question_list[i].getQs_7()!=null){
 %>
 <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '7'>
    <label for='checkbox'><%=question_list[i].getQs_7()%>
-   <input class="optionBox" type="text" placeholder="7개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="7개 항목 선택시" name="def<%=cnt%>_7">
    </label>
    </div>
 <%
@@ -529,7 +529,7 @@ if(question_list[i].getQs_8()!=null){
 %>
 <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '8'>
    <label for='checkbox'><%=question_list[i].getQs_8()%>
-   <input class="optionBox" type="text" placeholder="8개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="8개 항목 선택시" name="def<%=cnt%>_8">
    </label>
    </div>
 <%
@@ -537,7 +537,8 @@ if(question_list[i].getQs_8()!=null){
 if(question_list[i].getQs_9()!=null){
 %>
 <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '9'>
-   <label for='checkbox'><%=question_list[i].getQs_9()%><input class="optionBox" type="text" placeholder="9개 항목 선택시" name="def">
+   <label for='checkbox'><%=question_list[i].getQs_9()%>
+   <input class="optionBox" type="text" placeholder="9개 항목 선택시" name="def<%=cnt%>_9">
    </label>
    </div>
 <%
@@ -546,7 +547,7 @@ if(question_list[i].getQs_10()!=null){
 %>
 <div id='survey_option'><input type='checkbox' class='checkboxCircle' name='checkboxGroup<%=cnt%>' id='checkbox' value= '10'>
    <label for='checkbox'><%=question_list[i].getQs_10()%>
-   <input class="optionBox" type="text" placeholder="10개 항목 선택시" name="def">
+   <input class="optionBox" type="text" placeholder="10개 항목 선택시" name="def<%=cnt%>_10">
    </label>
    </div>   
 <%

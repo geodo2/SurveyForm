@@ -45,6 +45,10 @@
 	    color: #fff;
 	    background-color: tomato;
 	    border-color: #28a745;
+		}
+		.bt_col {
+	     background-color: #A4B2FF;
+         color: white;
 		}       
   </style>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
@@ -112,7 +116,7 @@
 				<div class="d-flex justify-content-center">
 					<a class="btn btn-outline-primary" data-toggle="modal" href="#registerModal">내가 만든 설문</a>
 					<form method="post" action="./indexed.jsp">
-						<button type="submit" class="btn btn-primary mx-1 mt-2">응답한 설문</button>
+						<button type="submit" class="btn bt_col mx-1 mt-2">응답한 설문</button>
 					</form>
 				</div>
 			</section>
