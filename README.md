@@ -29,14 +29,26 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 
 
 
-## 설문지 결과 및 통계 화면
-프로그래밍적 요소를 넣어 사용자가 결과 화면을 구성할 수 있게끔 하였습니다. ( 현재 기획단계)
-![image](https://user-images.githubusercontent.com/94734394/209276726-8128bf06-fc2b-4526-a7d6-781c5d172a9d.png)
-![image](https://user-images.githubusercontent.com/94734394/209276757-a86d9575-7351-401c-8638-f66ee4cb1725.png)
+## 설문지 결과 (프로그래밍적 요소)
+프로그래밍적 요소를 넣어 사용자가 결과 화면을 구성할 수 있게끔 하였습니다.
+![image](https://user-images.githubusercontent.com/94734394/210292006-bc2e88fc-e196-4277-bb10-5a0a35942f73.png)
 질문 타입별로 다른 방식으로 Admin이 결과페이지를 설계할 수 있습니다.
-![image](https://user-images.githubusercontent.com/94734394/209277005-93ec1251-559f-4821-a242-8e6adfc17882.png)
 
-https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ/%EC%84%A4%EB%AC%B8%EC%A1%B0%EC%82%AC-%EC%84%9C%EB%B9%84%EC%8A%A4?t=ZZ8PO2NettXvVeEW-1(기획단계)
+질문에 대한 프로그래밍적 요소를 사용하려면 <q>질문1<p>라고 입력하면됩니다. 
+또한 기본적인 <h1>,<p>,<br> 과 같은 기본적인 태그로 결과페이지를 꾸밀 수 있습니다. 
+
+단답형의 경우 해당 응답자의 답변을 그대로 사용할 수 있고 Admin이 새로운 변수를 추가할 수 있습니다.
+![image](https://user-images.githubusercontent.com/94734394/210292315-b5dc9cf9-72d8-424f-b77a-583c5ac9133f.png)
+  
+
+라디오의 경우 해당 응답자의 선택에 따른 변수들을 미리 설정이 가능합니다.  
+![image](https://user-images.githubusercontent.com/94734394/210292269-b42664c0-e347-4766-9256-5340b46fb7dc.png)
+
+체크박스의 경우 응답자가 체크한 답변 갯수에 따른 변수 설정이 가능합니다.
+![image](https://user-images.githubusercontent.com/94734394/210292191-496ebadf-256a-4d6b-b489-89f65ede3c3a.png)
+
+
+
 ## 개선 방향 
 ## DATABASE
 유저가 작성한 설문에 대한 데이터 베이스(survey_list,survey_question)와 설문 답변을 위한 데이터베이스(survey_answer)
