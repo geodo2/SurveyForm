@@ -36,6 +36,7 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 
 질문에 대한 프로그래밍적 요소를 밑의 예시처럼 사용이 가능합니다.
 또한 기본적인 h1,p,br 과 같은 기본적인 태그로 결과페이지를 꾸밀 수 있습니다. 
+
 ![image](https://user-images.githubusercontent.com/94734394/210292806-cf3bae57-1ffe-4700-ad2d-2aa4c8b3ca95.png)
 
 
