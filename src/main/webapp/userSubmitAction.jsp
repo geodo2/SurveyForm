@@ -57,10 +57,9 @@ for( String val:question_type){
 			
 			String[] checkbox = request.getParameterValues("checkboxGroup"+i);
 			for(String check:checkbox){
-				System.out.println(check+"value 값을 바꾼 상황");
+				
 				if(check.equals("1")){
-					 qs_1=check;
-					System.out.println(qs_1+"qs1 값");
+					 qs_1=check;	
 				}
 				else if(check.equals("2")){
 					 qs_2=check;
@@ -101,9 +100,12 @@ for( String val:question_type){
 }
 
 
-System.out.println(question_type.length);
+
 script.println("<script>");
-script.println("location.href='index.jsp'");
+
 script.println("</script>");
 %>
+<script>
+location.href='userSubmitResult.jsp?survey_num='+<%=sid%>+'&&userid='+"<%=userID%>";
+</script>
 

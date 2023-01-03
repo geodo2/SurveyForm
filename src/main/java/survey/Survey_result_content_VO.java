@@ -21,10 +21,10 @@ public class Survey_result_content_VO {
 	   public void setSeq(int sid) {
 	      this.sid = sid;
 	   }
-	   public String getSurvey_seq() {
+	   public String get_content() {
 	      return content;
 	   }
-	   public void setSurvey_seq(String content) {
+	   public void set_content(String content) {
 	      this.content = content;
 	   }
 	   

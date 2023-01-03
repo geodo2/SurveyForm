@@ -59,8 +59,8 @@
          margin-left: -30px;
       }
       .createBtn{
-      	 bottom: 60px;
-      	 left:100px;
+          bottom: 60px;
+          left:100px;
          width: 200px;
          position: fixed;
          right:30px;
@@ -213,16 +213,16 @@
 <link rel= "stylesheet" href = "./css/custom.css">
 </head>
 <body>
-<%	
-	UserDAO userDAO = new UserDAO();
-	String userID = null;
-	if(session.getAttribute("userID") != null){
-		userID = (String) session.getAttribute("userID");
-		
-	}else{
-		userID = "Guest";
-	
-	}
+<%   
+   UserDAO userDAO = new UserDAO();
+   String userID = null;
+   if(session.getAttribute("userID") != null){
+      userID = (String) session.getAttribute("userID");
+      
+   }else{
+      userID = "Guest";
+   
+   }
 %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
@@ -240,26 +240,26 @@
                </a>
          <div class="dropdown-menu"  aria-labelledby="dropdown">
 <%
-	if(userID == null || userID.equals("Guest")){
-		
+   if(userID == null || userID.equals("Guest")){
+      
 %>
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a>
-						<a class="dropdown-item" href="userJoin.jsp">회원가입</a>
+                  <a class="dropdown-item" href="userLogin.jsp">로그인</a>
+                  <a class="dropdown-item" href="userJoin.jsp">회원가입</a>
 <% 
-	}
-	else{
-		
+   }
+   else{
+      
 %>
-						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+                  <a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
 <%
-	}
+   }
 %>         
 
          </div>
       </li>
    </ul>
         
-</div>ㅇ
+</div>
 
 </nav>
                 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -267,9 +267,9 @@
    let cnt=0;//문항수 
    const qsnum=[];
       $(document).ready(function(){
-    	  
+         
          $('.createBtn').click(function(){
-        	 cnt++;
+            cnt++;
             $('#surveyfm').append(
                '<div class="questionDiv">\
                   <div class="firstSet">\
@@ -290,7 +290,7 @@
             );
             qsnum.push(0);
             $("#total").val(cnt);
-           	
+              
            /* $('.questionDelete').on('click', function(){
                $(this).prev().remove(); // input
                $(this).next().remove(); // select
@@ -304,12 +304,12 @@
          })
          
          $(".questionOpt").on("change",function(){
-        	 
+            
          });
          
       })
       function question_del(obj){
-    	  $(obj).prev().remove(); // input
+         $(obj).prev().remove(); // input
           $(obj).next().remove(); // select
           $(obj).parent().next().remove(); // img
           $(obj).parent().parent().remove(); // questionDiv class
@@ -350,7 +350,7 @@
          } if(val == 'Selection'){
             // alert('bb');
             $("#questionKind"+n).parent().append(
-            		'<div class="questioncheckbox'+n+'">\
+                  '<div class="questioncheckbox'+n+'">\
                     <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="checkbox" class="checkboxCircle" name="checkboxGroup'+n+'" id="checkbox'+n+'_'+ (qsnum[n-1]) +'" >\
                     <label for="checkbox'+n+'_'+ (qsnum[n-1]) +'"><input class="optionBox" type="text" placeholder="선택지'+ (qsnum[n-1]) +'" name="qs_'+n+'_'+ (qsnum[n-1]) +'"></label><div onclick="option_del('+n+','+qsnum[n-1]+')" class="optionDelete">-</div></div>\
                     <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="checkbox" class="checkboxCircle" name="checkboxGroup'+n+'" id="checkbox'+n+'_'+ (qsnum[n-1]) +'">\
@@ -367,20 +367,20 @@
          }
       }
       function option_del(n,qs){
-    	  
-    	  $('#survey_option'+n+'_'+qs).remove();
+         
+         $('#survey_option'+n+'_'+qs).remove();
       }
       function option_add(n){
-    	  if(qsnum[n-1]==10){alert("10개를 넘기면 안됨"); return;}
-    	  $('.questionRadio'+n+'>.addOption').before(
-    			 ' <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="radio" class="radioCircle" name="radioGroup'+n+'" id="radio'+n+'_'+ (qsnum[n-1]) +'"> <label for="radio'+n+'_'+ (qsnum[n-1]) +'"><input class="optionBox" type="text" placeholder="선택지'+ (qsnum[n-1]) +'" name="qs_'+n+'_'+(qsnum[n-1])+'"></label><div onclick="option_del('+n+','+qsnum[n-1]+' )" class="optionDelete">-</div></div>'
-    	  );
+         if(qsnum[n-1]==10){alert("10개를 넘기면 안됨"); return;}
+         $('.questionRadio'+n+'>.addOption').before(
+              ' <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="radio" class="radioCircle" name="radioGroup'+n+'" id="radio'+n+'_'+ (qsnum[n-1]) +'"> <label for="radio'+n+'_'+ (qsnum[n-1]) +'"><input class="optionBox" type="text" placeholder="선택지'+ (qsnum[n-1]) +'" name="qs_'+n+'_'+(qsnum[n-1])+'"></label><div onclick="option_del('+n+','+qsnum[n-1]+' )" class="optionDelete">-</div></div>'
+         );
       }
- 		function option_addchk(n){
- 			if(qsnum[n-1]==10){alert("10개를 넘기면 안됨"); return;}
-    	  $('.questioncheckbox'+n+'>.addOption').before(
-    			 ' <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="checkbox" class="checkboxCircle" name="checkboxGroup'+n+'" id="checkbox'+n+'_'+ (qsnum[n-1]) +'"> <label for="checkbox'+n+'_'+ (qsnum[n-1]) +'"><input class="optionBox" type="text" placeholder="선택지'+ (qsnum[n-1]) +'" name="qs_'+n+'_'+(qsnum[n-1])+'"></label><div onclick="option_del('+n+','+qsnum[n-1]+' )" class="optionDelete">-</div></div>'
-    	  );
+       function option_addchk(n){
+          if(qsnum[n-1]==10){alert("10개를 넘기면 안됨"); return;}
+         $('.questioncheckbox'+n+'>.addOption').before(
+              ' <div id="survey_option'+n+'_'+ (++qsnum[n-1]) +'"><input type="checkbox" class="checkboxCircle" name="checkboxGroup'+n+'" id="checkbox'+n+'_'+ (qsnum[n-1]) +'"> <label for="checkbox'+n+'_'+ (qsnum[n-1]) +'"><input class="optionBox" type="text" placeholder="선택지'+ (qsnum[n-1]) +'" name="qs_'+n+'_'+(qsnum[n-1])+'"></label><div onclick="option_del('+n+','+qsnum[n-1]+' )" class="optionDelete">-</div></div>'
+         );
       }
    </script>
    

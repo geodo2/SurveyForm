@@ -441,7 +441,7 @@ if(question_list[i].getQs_10()!=null){
 <%    
     } 
 %>   
-답변보기: <%=survey_answer[i].getAnswer_content()%>
+<br>답변보기: <%=survey_answer[i].getAnswer_content()%></br>
    </div>
    </div>
   	</div>

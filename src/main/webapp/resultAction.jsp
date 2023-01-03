@@ -81,9 +81,7 @@ for( String val:question_type){
 			} 
 		   
 		   }
-		   System.out.println(i+"값 확인");
 		   
-		   System.out.println(val+"셀렉션항목");
 		   surveyO.insert_result_var(survey_sid, i, "radio", qs_1, qs_2, qs_3, qs_4, qs_5, qs_6, qs_7, qs_8, qs_9, qs_10);
 	   
 	   }
@@ -125,7 +123,7 @@ for( String val:question_type){
 				   }
 				   surveyO.insert_result_var(survey_sid, i, "selection", qs_1, qs_2, qs_3, qs_4, qs_5, qs_6, qs_7, qs_8, qs_9, qs_10);
 	   }
-	      System.out.println(val.charAt(j)+"val 값 확인용도");
+	      
 	   j=j+3;   
 	   }
 	   

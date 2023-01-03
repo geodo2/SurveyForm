@@ -308,14 +308,14 @@ pageEncoding="UTF-8"  %>
      </div>
      <div class='questionRadio1'>               
     <div id='survey_option1_1'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_1' value ='<%=question_list[i].getQs_1()%>'>
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_1' value ='1'>
     <label for='radio1_2'>
     <%=question_list[i].getQs_1()%>
     </label>
 
     </div>                
     <div id='survey_option1_2'>
-    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_2()%>'>                
+    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='2'>                
    <label for='radio1_2'>
     <%=question_list[i].getQs_2()%>
       </label>
@@ -327,7 +327,7 @@ pageEncoding="UTF-8"  %>
 %>    
     </div>                 
     <div id='survey_option1_2'>
-    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_3()%>'>                
+    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='3'>                
     <label for='radio1_2'>
     <%=question_list[i].getQs_3()%>
     </label> 
@@ -341,7 +341,7 @@ pageEncoding="UTF-8"  %>
    
    </div>                 
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_4()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='4'>                
    <label for='radio1_2'>
        <%=question_list[i].getQs_4()%>
    </label> 
@@ -354,7 +354,7 @@ pageEncoding="UTF-8"  %>
 %>    
    </div>                 
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_5()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='5'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_5()%>
    </label> 
@@ -367,7 +367,7 @@ pageEncoding="UTF-8"  %>
 %>    
                
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_6()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='6'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_6()%>
    </label>
@@ -380,7 +380,7 @@ pageEncoding="UTF-8"  %>
 %>    
                 
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_7()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='7'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_7()%>
    </label> 
@@ -393,7 +393,7 @@ if(question_list[i].getQs_8()!=null){
 %>    
                  
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_8()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='8'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_8()%>
    </label> 
@@ -406,7 +406,7 @@ if(question_list[i].getQs_8()!=null){
 %>    
             
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_9()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='9'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_9()%>
    </label> 
@@ -419,7 +419,7 @@ if(question_list[i].getQs_10()!=null){
 %>    
    </div>                 
    <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_10()%>'>                
+   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='10'>                
    <label for='radio1_2'>
    <%=question_list[i].getQs_10()%>
    </label> 

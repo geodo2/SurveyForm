@@ -406,6 +406,97 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		}
 		
 	}
+	public Survey_result_content_VO[] get_result_content(int sid) {
+		
+		Survey_result_content_VO[] result_content = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM result_content WHERE sid = ?;";
+		String countQuery = "SELECT count(*) FROM result_content WHERE sid = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setInt(1,sid);
+		
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			result_content = new Survey_result_content_VO[count];
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,sid);
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				result_content[i] =new Survey_result_content_VO(
+						rs.getInt(1),
+						rs.getString(2)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result_content;
+	}
+	public Survey_result_var_VO[] get_result_var(int sid) {
+		
+	Survey_result_var_VO[] result_var = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM result_var WHERE sid = ? ;";
+		String countQuery = "SELECT count(*) FROM result_var WHERE sid = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setInt(1,sid);
+		
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			result_var = new Survey_result_var_VO[count];
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,sid);
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				result_var[i] =new Survey_result_var_VO(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11),
+						rs.getString(12),
+						rs.getString(13)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return result_var;
+	}
+	
 	
 	
 }

@@ -3,6 +3,7 @@ package survey;
 public class Survey_result_var_VO {
 	 private int sid;
 	   private int question_seq;
+	   private String q_type;
 	   private String qs_1;
 	   private String qs_2;
 	   private String qs_3;
@@ -18,12 +19,13 @@ public class Survey_result_var_VO {
 	      
 	   }
 	
-	   public Survey_result_var_VO(int sid, int survey_seq,
+	   public Survey_result_var_VO(int sid, int survey_seq, String q_type,
 			   String qs_1, String qs_2, String qs_3, String qs_4, String qs_5, String qs_6,
 			   String qs_7, String qs_8, String qs_9, String qs_10) {
 		   	  super();
 		      this.sid=sid;
 		      this.question_seq=survey_seq;
+		      this.q_type=q_type;
 		      this.qs_1=qs_1;
 		      this.qs_2=qs_2;
 		      this.qs_3=qs_3;
@@ -47,6 +49,12 @@ public class Survey_result_var_VO {
 	   }
 	   public void setSurvey_seq(int question_seq) {
 	      this.question_seq = question_seq;
+	   }
+	   public String get_type() {
+	      return q_type;
+	   }
+	   public void set_type(String q_type) {
+	      this.q_type = q_type;
 	   }
 	   public String getQs_1() {
 	      return qs_1;
