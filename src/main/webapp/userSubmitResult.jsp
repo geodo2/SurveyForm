@@ -442,9 +442,63 @@ pageEncoding="UTF-8"  %>
    String get_user_id =request.getParameter("userid");
    String content=survey_content[0].get_content();
    String io="1";
-   content=content.replace("질문"+io,"abcd");
+  
    System.out.println(content);
+   //survey
+   Survey_result_var_VO[] result_var=surveyO.get_result_var(survey_sid);
+   Survey_answer_VO[] answer_value=surveyO.survey_answer(survey_sid, get_user_id);
+   //질문 갯수
+   int q_count=result_var.length;
+  
    
+   for(int i=0; i<q_count; i++){
+	   if(result_var[i].get_type().equals("text")){
+		   String temp=answer_value[i].getAnswer_content();		  
+		   int j=i+1;
+		   content=content.replace("질문"+j,temp);
+	   }
+	   if(result_var[i].get_type().equals("radio")){
+   	   	  int j=i+1;
+   	   	  int radio_answer=Integer.parseInt(answer_value[i].getAnswer_content());
+   	   		 System.out.println(radio_answer);
+   	   	  if(radio_answer==1){content=content.replace("질문"+j,result_var[i].getQs_1());}
+   	   	  else if(radio_answer==2){content=content.replace("질문"+j,result_var[i].getQs_2());}
+   	   	  else if(radio_answer==3){content=content.replace("질문"+j,result_var[i].getQs_3());}	  
+	   	  else if(radio_answer==4){content=content.replace("질문"+j,result_var[i].getQs_4());}
+	   	  else if(radio_answer==5){content=content.replace("질문"+j,result_var[i].getQs_5());}
+	   	  else if(radio_answer==6){content=content.replace("질문"+j,result_var[i].getQs_6());}
+	   	  else if(radio_answer==7){content=content.replace("질문"+j,result_var[i].getQs_7());}
+	   	  else if(radio_answer==8){content=content.replace("질문"+j,result_var[i].getQs_8());}
+	   	  else if(radio_answer==9){content=content.replace("질문"+j,result_var[i].getQs_9());}
+	      else if(radio_answer==10){content=content.replace("질문"+j,result_var[i].getQs_10());}
+	   }
+	   if(result_var[i].get_type().equals("selection")){
+		   int check_count=0;
+		   int j=i+1;
+		   if(answer_value[i].getQs_1().equals("1")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_2().equals("2")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_3().equals("3")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_4().equals("4")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_5().equals("6")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_5().equals("7")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_5().equals("8")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_5().equals("9")){check_count=check_count+1;}
+		   if(answer_value[i].getQs_5().equals("10")){check_count=check_count+1;}
+		   
+		   System.out.println(check_count+"몇개");
+		   if(check_count==1){content=content.replace("질문"+j,result_var[i].getQs_1());}
+		   else if(check_count==2){content=content.replace("질문"+j,result_var[i].getQs_2());}
+		   else if(check_count==3){content=content.replace("질문"+j,result_var[i].getQs_3());}
+		   else if(check_count==4){content=content.replace("질문"+j,result_var[i].getQs_4());}
+		   else if(check_count==5){content=content.replace("질문"+j,result_var[i].getQs_5());}
+		   else if(check_count==6){content=content.replace("질문"+j,result_var[i].getQs_6());}
+		   else if(check_count==7){content=content.replace("질문"+j,result_var[i].getQs_7());}
+		   else if(check_count==8){content=content.replace("질문"+j,result_var[i].getQs_8());}
+		   else if(check_count==9){content=content.replace("질문"+j,result_var[i].getQs_9());}
+		   else if(check_count==10){content=content.replace("질문"+j,result_var[i].getQs_10());}
+		   
+	   }
+   }
 %>
      
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
