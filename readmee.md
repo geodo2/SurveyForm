@@ -29,7 +29,9 @@ gh repo clone https://soominkiminsoo/SurveyForm1.git
 * mysql-connector-j-8.0.31.jar
 * mail-1.4.7.jar
 * activation.jar
-## 개발환경(데이터 베이스)
+   
+<b>데이터 베이스</b>
+[database.md](https://github.com/soominkiminsoo/SurveyForm1/blob/712801d77cc69d13665eb9b10a81b2e6a7e250a0/database.md)
 ## 프로젝트 기획 (Figma Design) 
 https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
 ## 프로젝트 페이지 설명 
