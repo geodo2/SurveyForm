@@ -1,7 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.io.PrintWriter, java.util.ArrayList, java.net.URLEncoder" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8"  %>
+<%@ page import="user.*, survey.*" %>
+    <%@ page import="java.io.PrintWriter, java.util.*"%>
+<%@ page import="survey.*, util.*"%>
 
+<%@ page import='user.UserDAO' %>
+<%@ page import='java.lang.reflect.Method, java.util.ArrayList' %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,9 +86,36 @@
 
 </div>
 </nav>
+<% 
+   request.setCharacterEncoding("UTF-8");
+   Survey_answer_DAO surveyO = new Survey_answer_DAO();
+  
+   //세션정보 가져오기
+   String userID = "";
+   if(session.getAttribute("userID") != null){
+		userID = (String) session.getAttribute("userID");
+		System.out.println(userID);
+	}else{
+		userID = "Guest";
+		System.out.println(userID);
+	}
+   
+   //엔서 리스트에 서베이 sequence 가져오고 그 sequence로 servey list에 제목 가져오기
+  
+
+   //답변  geodo2->userID로 바꿔야 함 . survey_answer에 reg data 사용 
+   Survey_answer_list_VO[] survey_answer= surveyO.answer_list_userid("geodo2");
+   System.out.println(survey_answer[0].getSurvey_seq()+"flag wo check");  
+   
+   int answer_list_length=survey_answer.length;
+  
+   
+   
+         
+%>
 <section class="container">
 		
-			
+			 
 			<div class="d-flex justify-content-center">
 			<form method="post" action="./index.jsp">
 			<button type="submit" class="btn bt_col mx-1 mt-2">내가 만든 설문</button>
@@ -95,17 +126,25 @@
 			</div>			
 			<div>			
 			</div>
-			
+<%
+	for (int i=0; i<answer_list_length;i++){
+		
+		Survey_VO[] survey_list = surveyO.question_list_data(survey_answer[i].getSurvey_seq());
+		
+		
+	
+
+
+%>			
 </section>	
 			<div class="some">
 				<div class="row">
 				<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
 						<div class="titleName">
-						월드컵 경기 관람 수요조사 
+						<%=survey_list[0].getSurvey_title() %>
 						</div>
 						<div class="when">
-						15 November
-						2022 
+					답변 날짜: <%=survey_answer[i].getReg_data() %>
 						</div>
 						
 				</div>
@@ -115,41 +154,12 @@
 				</form>
 				</div>			
 			</div>
-			<div class="some">
-				<div class="row">
-				<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-						<div class="titleName">
-						학생식당 설문조사
-						</div>
-						<div class="when">
-						25 October
-						2022 
-						</div>
-					
-				</div>	
-				<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-				<button type="submit"  class="btn btn-secondary float-right">응답보기</button>
-				</form>
-				</div>		
-			</div>
-			<div class="some">
-				<div class="row">
-				<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
-						<div class="titleName">
-						학생인권 실태조사
-						</div>
-						<div class="when">
-						15 september
-						2022 
-						</div>					
-				</div>
-				<div class="lookanswer">
-				<form method="post" action="./index.jsp">
-				<button type="submit"  class="btn btn-secondary float-right">응답보기</button>
-				</form>
-				</div>			
-			</div>
+			
+			
+<%
+}
+%>			
+			
 	<div class="modal-footer">
 	<form method="post" action="./makesurvey.jsp">
 	<button type="submit" class="btn make-btn col-10-6 mt-4">설문 만들기</button>

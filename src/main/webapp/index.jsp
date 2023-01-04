@@ -83,6 +83,8 @@
 
 
 %>
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.jsp">설문조사 서비스</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
@@ -108,6 +110,7 @@
 	
 </div>
 </nav>
+<a href="javascript:;" onclick="copyLink('www.naver.com');">링크복사</a>
  <div id="surveylist" name="surveylist" >
 	      <input type="hidden" name="total" id="total">
 	         <div class="name">
@@ -167,7 +170,14 @@
       </div>
       <script>
 
-      
+      var copyLink = function(str) {
+    	    if( is_ie() ) {
+    	        window.clipboardData.setData("Text", str);
+    	        alert("복사되었습니다.");
+    	        return;
+    	    }
+    	    prompt("Ctrl+C를 눌러 복사하세요.", str);
+    	};
       
    
       

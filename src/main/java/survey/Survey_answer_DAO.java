@@ -497,6 +497,50 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		return result_var;
 	}
 	
+	// indexed 페이지에 내가 응한 설문 가져오는 용도 
+	public Survey_answer_list_VO[] answer_list_userid(String userid) {
+		
+		Survey_answer_list_VO[] survey_answer_list = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM Survey_answer_list WHERE user_id = ?;";
+		String countQuery = "SELECT count(*) FROM Survey_answer_list WHERE user_id = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setString(1,userid);
+
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			survey_answer_list = new Survey_answer_list_VO[count];
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1,userid);
+
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				survey_answer_list[i] =new Survey_answer_list_VO(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getString(3),
+						rs.getString(4)
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return survey_answer_list;
 	
 	
+		}
 }
