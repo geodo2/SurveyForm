@@ -38,7 +38,8 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 [페이지 설명 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/2e33415cd29cee5595f7512eae4afc2e6183d910/Page_decription.md) 
 ## :five:프로젝트의 기술적 요소
 
-
+<br>프로그래밍적 요소<br>
+<br>통계 페이지<br>
 ##
 
 
