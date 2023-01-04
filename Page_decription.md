@@ -1,15 +1,6 @@
-# SurveyForm1
+# 페이지 설명
 
 
-## 프로젝트 계획 이유
-  기존 Survey 서비스 Google Form이나 MicroSoft survey을 분석 및 브레인 스토밍을 통해 개선 활용 방안을 구상하였고 해당 서비스에 조금 더 기술적인 개선의 여지를 찾아 다양한 시도를 해보기 위함.
-  구상한 개선 아이디어는 다음과 같음.
-  1.  자신이 응답한 설문을 시간이 지난 후에도 확인이 가능함.
-  2.  설문 응시자에게 응답에 따른 다른 결과화면을 보여주는 것.
-  3.  설문 서비스에 프로그래밍적 요소를 담아 기술적 개선 여지 발굴 가능성
-  
-## 프로젝트 Figma Design 
-https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
 ## 회원가입 및 로그인
 회원가입 화면: 이메일 인증시스템 도입
 ![image](https://user-images.githubusercontent.com/94734394/204644510-cb89cb12-08bc-4b53-912d-6024dbd8256d.png)
@@ -54,9 +45,4 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 
 
 
-## 개선 방향 
-## DATABASE
-유저가 작성한 설문에 대한 데이터 베이스(survey_list,survey_question)와 설문 답변을 위한 데이터베이스(survey_answer)
-![image](https://user-images.githubusercontent.com/94734394/206070159-bf697c9f-da1f-4f29-9fae-1885fa9bfae8.png)
 
-JSP+ MySQL
