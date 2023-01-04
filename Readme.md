@@ -25,6 +25,12 @@
 ```xml
 gh repo clone https://soominkiminsoo/SurveyForm1.git
 ```
+<b>Stack<b>
+* Eclipse
+* Jsp Project(HTML,CSS,javascript,Java)
+* Mysql-8.0.31
+*Tomcat Server-10.0.0
+
  <b>jar 파일 다운로드</b>
 * mysql-connector-j-8.0.31.jar
 * mail-1.4.7.jar
