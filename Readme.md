@@ -13,24 +13,18 @@
 
 </div>
 
-## 프로젝트 계획 이유
+## :one:프로젝트 계획 이유
   기존 Survey 서비스 Google Form이나 MicroSoft survey을 분석 및 브레인 스토밍을 통해 개선 활용 방안을 구상하였고 해당 서비스에 조금     더 기술적인 개선의 여지를 찾아 다양한 시도를 해보기 위함.
   구상한 개선 아이디어는 다음과 같음.
   1.  자신이 응답한 설문을 시간이 지난 후에도 확인이 가능함.
   2.  설문 응시자에게 응답에 따른 다른 결과화면을 보여주는 것.
   3.  설문 서비스에 프로그래밍적 요소를 담아 기술적 개선 여지 발굴 가능성
-## 개발환경 및 이용 방법
+## :two:개발환경 및 이용 방법
 
 <b>프로젝트 clone</b>
 ```xml
 gh repo clone https://soominkiminsoo/SurveyForm1.git
 ```
-<b>Stack<b>
-* Eclipse
-* Jsp Project(HTML,CSS,javascript,Java)
-* Mysql-8.0.31
-*Tomcat Server-10.0.0
-
  <b>jar 파일 다운로드</b>
 * mysql-connector-j-8.0.31.jar
 * mail-1.4.7.jar
@@ -38,11 +32,11 @@ gh repo clone https://soominkiminsoo/SurveyForm1.git
    
 <b>데이터 베이스</b>
 [데이터베이스 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/712801d77cc69d13665eb9b10a81b2e6a7e250a0/database.md)
-## 프로젝트 기획 (Figma Design) 
+## :three:프로젝트 기획 (Figma Design) 
 https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
-## 프로젝트 페이지 설명
+## :four:프로젝트 페이지 설명
 [페이지 설명 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/2e33415cd29cee5595f7512eae4afc2e6183d910/Page_decription.md) 
-## 프로젝트의 기술적 요소
+## :five:프로젝트의 기술적 요소
 
 
 ##
