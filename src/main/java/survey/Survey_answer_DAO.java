@@ -540,7 +540,66 @@ public class Survey_answer_DAO extends DatabaseUtil {
 		}
 		
 		return survey_answer_list;
-	
-	
 		}
+	//static page에 필요한  답변
+	public Survey_answer_VO[] survey_static(int survey_seq) {
+		
+		Survey_answer_VO[] show_answer = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		String query = "SELECT * FROM survey_answer WHERE survey_seq = ?";
+		String countQuery = "SELECT count(*) FROM survey_answer WHERE survey_seq = ?;";
+		int count = 0;
+		try {
+			conn = DatabaseUtil.getConnection();
+			pstmt = conn.prepareStatement(countQuery);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			
+			show_answer = new Survey_answer_VO[count];
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1,survey_seq);
+
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next() ){ // get survey content
+				show_answer[i] =new Survey_answer_VO(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getInt(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getString(6),
+						rs.getString(7),
+						rs.getString(8),
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11),
+						rs.getString(12),
+						rs.getString(13),
+						rs.getString(14),
+						rs.getString(15),
+						rs.getString(16)
+						
+						);
+				i++;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return show_answer;
+	}
+	
+	
+	
+	
 }

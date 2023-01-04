@@ -80,7 +80,7 @@
 
 	
 	int survey_count = survey_data.length;
-
+	int temp=2;
 
 %>
 
@@ -110,7 +110,12 @@
 	
 </div>
 </nav>
-<a href="javascript:;" onclick="copyLink('www.naver.com');">링크복사</a>
+<div class="lnbArea">
+    <div class="lnbInside">
+        
+       
+        
+</div>
  <div id="surveylist" name="surveylist" >
 	      <input type="hidden" name="total" id="total">
 	         <div class="name">
@@ -139,6 +144,7 @@
 								</div>
 							</div>
 						
+		                
 						<div class="lookanswer">
 							<form method="post" action="./Survey_result.jsp?survey_num=<%=survey_data[i].getSeq()%>">
 								<button type="submit"  class="btn btn-secondary float-right">설문 결과</button>
@@ -148,8 +154,13 @@
 							<form method="post" action="./usersurvey.jsp?survey_num=<%=survey_data[i].getSeq()%>">
 								<button type="submit"  class="btn btn-secondary float-right">설문 확인</button>
 							</form>
-						</div>		
-			</div>
+						</div>
+						<div class="lookanswer">
+						<a href="#" id="sns_urlCoby" class="btn_share_sns" title="새창" onclick="clip(<%=survey_data[i].getSeq()%>); return false;">
+		               		<button type="submit"  class="btn btn-secondary float-right">링크복사</button>
+		                </a>
+		                </div>		
+				 </div>
 
  
 <%
@@ -169,16 +180,21 @@
 	         </div>	          
       </div>
       <script>
+      function clip(j){
 
-      var copyLink = function(str) {
-    	    if( is_ie() ) {
-    	        window.clipboardData.setData("Text", str);
-    	        alert("복사되었습니다.");
-    	        return;
-    	    }
-    	    prompt("Ctrl+C를 눌러 복사하세요.", str);
-    	};
-      
+          var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+          var textarea = document.createElement("textarea");  
+          //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+          var i=1;
+          document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+          url = "localhost:8090/usersurvey.jsp?survey_num="+j;  //url에는 현재 주소값을 넣어줌
+          textarea.value = url;  // textarea 값에 url를 넣어줌
+          textarea.select();  //textarea를 설정
+          document.execCommand("copy");   // 복사
+          document.body.removeChild(textarea); //extarea 요소를 없애줌
+          
+          alert("URL이 복사되었습니다.")  // 알림창
+      }
    
       
       </script>

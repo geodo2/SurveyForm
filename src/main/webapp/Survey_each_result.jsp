@@ -464,155 +464,86 @@ if(question_list[i].getQs_10()!=null){
      </div>
   
      <div class='questioncheckbox'>
-       <div id='survey_option'>
-       
-       <% if(survey_answer[i].getQs_1().equals("1")){ %>
-    	v
-    	<%}%> 	 
-   <label for='checkbox'><%=question_list[i].getQs_1()%>
-
-	 
-   </label>
-   <div id='survey_option'>
-   <% if(survey_answer[i].getQs_2().equals("2")){ %>
-    	v
-    	<%}%>
-   <label for='checkbox'><%=question_list[i].getQs_2()%>
-   <%System.out.println(survey_answer[i].getQs_2()+"check"); %>
-   </label>
-<%if(question_list[i].getQs_3()!=null){ %>
-   <div id='survey_option'>
-   <% if(survey_answer[i].getQs_1().equals("3")){ %>
-    	v
-    	<%}%>
-   <label for='checkbox'><%=question_list[i].getQs_3()%>
-   </label>
-   </div>
-<%
-}
-if(question_list[i].getQs_4()!=null){	
-%> 
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_4().equals("4")){ 
-%>
-    	v    	
-<%
-		}
-%>
-      <label for='checkbox'><%=question_list[i].getQs_4()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_5()!=null){
-%>   
-  
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_5().equals("5")){ 
-%>
-    	v    	
-<%
-		}
-%>   
-      <label for='checkbox'><%=question_list[i].getQs_5()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_6()!=null){	
-%> 
-    
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_1().equals("1")){ 
-%>
-    	v    	
-<%
-		}
-%>
-   
-      <label for='checkbox'><%=question_list[i].getQs_6()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_7()!=null){
-%>
- 
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_7().equals("7")){ 
-%>
-    	v    	
-<%
-		}
-%>
-  <label for='checkbox'><%=question_list[i].getQs_7()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_8()!=null){
-%>
-=
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_8().equals("8")){ 
-%>
-    	v    	
-<%
-		}
-%>
-  <label for='checkbox'><%=question_list[i].getQs_8()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_9()!=null){
-%> 
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_9().equals("9")){ 
-%>
-    	v    	
-<%
-		}
-%>   <label for='checkbox'><%=question_list[i].getQs_9()%></label>
-   </div>
-<%
-}
-if(question_list[i].getQs_10()!=null){
-%> 
-   <div id='survey_option'>
-<%
-		if(survey_answer[i].getQs_10().equals("10")){ 
-%>
-    	v    	
-<%
-		}
-%>   <label for='checkbox'><%=question_list[i].getQs_10()%></label>
-   </div>   
-<%
-}
-%>   
-    </div>
-    
-   </div>                  
-   </div>               
-     </div>
-     </div>
-    
-  
+     <div id='survey_option'>
+     <%if(survey_answer[i].getQs_1().equals("1")){ %>v<%}%>
+     <label for='checkbox'><%=question_list[i].getQs_1()%> </label>
+     <div id='survey_option'>
+  	 <%if(survey_answer[i].getQs_2().equals("2")){ %>v<%}%>
+     <label for='checkbox'><%=question_list[i].getQs_2()%>
+     <%System.out.println(survey_answer[i].getQs_2()+"check"); %></label>
      
-   
-         
-         <%
-    }
-      }
-      %> 
+	 <%if(question_list[i].getQs_3()!=null){ %>
+     <div id='survey_option'>
+     <% if(survey_answer[i].getQs_1().equals("3")){%>
+     v
+     <%}%>
+     <label for='checkbox'><%=question_list[i].getQs_3()%></label>
+  	 </div>
+  	 
+	 <%}if(question_list[i].getQs_4()!=null){%> 
+     <div id='survey_option'>
+     <%if(survey_answer[i].getQs_4().equals("4")){%>
+    	v    	
+      <%}%>
+      <label for='checkbox'><%=question_list[i].getQs_4()%></label>
+   	  </div>
+   	  
+	  <%}if(question_list[i].getQs_5()!=null){%>   
+      <div id='survey_option'>
+	  <%if(survey_answer[i].getQs_5().equals("5")){%>
+    	v    	
+	  <%}%>   
+      <label for='checkbox'><%=question_list[i].getQs_5()%></label>
+  	  </div>
+  	  
+	  <%}if(question_list[i].getQs_6()!=null){%>    
+   	  <div id='survey_option'>
+	  <%if(survey_answer[i].getQs_6().equals("6")){%>
+    	v    	
+	  <%}%>
+      <label for='checkbox'><%=question_list[i].getQs_6()%></label>
+  	  </div>
+  	  
+	<%}if(question_list[i].getQs_7()!=null){%>
+	 <div id='survey_option'>
+	<%if(survey_answer[i].getQs_7().equals("7")){ %>
+    	v    	
+	<%}%>
+	  <label for='checkbox'><%=question_list[i].getQs_7()%></label>
+	   </div>
+	<%}if(question_list[i].getQs_8()!=null){%>
+	=
+	<div id='survey_option'>
+	<%if(survey_answer[i].getQs_8().equals("8")){ %>
+	    	v    	
+	<%}%>
+	<label for='checkbox'><%=question_list[i].getQs_8()%></label>
+	 </div>
+	<%}if(question_list[i].getQs_9()!=null){%> 
+	   <div id='survey_option'>
+	<%if(survey_answer[i].getQs_9().equals("9")){ %>
+	    	v    	
+	<%}%>   <label for='checkbox'><%=question_list[i].getQs_9()%></label>
+	   </div>
+	<%}if(question_list[i].getQs_10()!=null){%> 
+	   <div id='survey_option'>
+	<%if(survey_answer[i].getQs_10().equals("10")){ %>
+	    	v    	
+	<%}%>  
+	 <label for='checkbox'><%=question_list[i].getQs_10()%></label>
+	   </div>   
+	<%}%>   
+	    </div>
+    
+	   </div>                  
+	   </div>               
+       </div>
+       </div>    
+<%}}%> 
       	 <input type="hidden" name="sid" value= "<%=sid_num%>">
       	 <input type="hidden" name="type_array" id="total" value= "<%=a_question%>">	
   		 <input type="hidden" name="total" id="total" value= "<%=cnt%>">
-         <div class="footer">
-               
-            
+         <div class="footer">   
          </div>
            </form>
  

@@ -67,10 +67,8 @@
          background-color: #A4B2FF;
          color: white;
          border: none;
-       
          font-weight: bold;
-         font-size: 25px;
-         
+         font-size: 25px;     
          padding: 17px 30px 15px 30px;
          box-shadow: 3px 3px 5px grey;
       }

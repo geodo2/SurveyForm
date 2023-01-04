@@ -19,12 +19,12 @@ pageEncoding="UTF-8"  %>
 			  color: white;
 			  border: 2px solid black;
 			    margin: 70px;
-			  margin-left:370px;
+			  margin-left:470px;
 			  padding: 20px;
 			  
 			  }
 		.titleName{
-				width: 500px;
+				width: 300px;
 				margin-right:20px;
 				font-size:30px;
 				font-weight:20px;

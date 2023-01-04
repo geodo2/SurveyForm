@@ -45,7 +45,42 @@
 	    color: #fff;
 	    background-color: tomato;
 	    border-color: #28a745;
-		}       
+		}
+		.submitBtn{
+         width:200px;
+        
+         right:47px;
+         position: fixed;
+         bottom: 60px;
+         color: white;
+         
+         
+         margin-right: 25px;
+         margin-top: 120px;
+         background-color: #A4B2FF;
+         color: white;
+         border: none;
+
+         font-weight: bold;
+         font-size: 25px;
+         
+         padding: 17px 30px 15px 30px;
+         box-shadow: 3px 3px 5px grey;
+      } 
+      .createBtn{
+          bottom: 60px;
+          left:100px;
+         width: 200px;
+         position: fixed;
+         right:30px;
+         background-color: #212529;
+         color: white;
+         border: none;
+         font-weight: bold;
+         font-size: 25px;     
+         padding: 17px 30px 15px 30px;
+         box-shadow: 3px 3px 5px grey;
+      }      
   </style>
 <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
 <meta name= "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -113,11 +148,18 @@
 							</form>
 						</div>
 							
-				</div>
+			</div>
 
  
 <%
 	 }
 %>  
+<form method="post" action="./Survey_result_static.jsp?survey_num=<%=sid_num%>">
+<button type="submit" class="submitBtn">통계보기</button>
+</form>
+<form method="post" action="./index.jsp">
+<button class="createBtn" > 뒤로가기</button>
+</form>
 </body>
+
 </html>
