@@ -19,13 +19,23 @@
   1.  자신이 응답한 설문을 시간이 지난 후에도 확인이 가능함.
   2.  설문 응시자에게 응답에 따른 다른 결과화면을 보여주는 것.
   3.  설문 서비스에 프로그래밍적 요소를 담아 기술적 개선 여지 발굴 가능성
-## 개발환경  
+## 개발환경 및 이용 방법
+
+<b>프로젝트 clone</b>
+```xml
+gh repo clone https://soominkiminsoo/SurveyForm1.git
+```
+ <b>jar 파일 다운로드</b>
+* mysql-connector-j-8.0.31.jar
+* mail-1.4.7.jar
+* activation.jar
 ## 개발환경(데이터 베이스)
 ## 프로젝트 기획 (Figma Design) 
 https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
 ## 프로젝트 페이지 설명 
 ## 프로젝트의 기술적 요소
-## 프로젝트 다운로드 및 이용 방법 
+
+
 ##
 
 
