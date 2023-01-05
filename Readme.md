@@ -34,7 +34,7 @@ gh repo clone https://soominkiminsoo/SurveyForm1.git
 [데이터베이스 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/712801d77cc69d13665eb9b10a81b2e6a7e250a0/database.md)
 ## :three:프로젝트 기획 (Figma Design) 
 https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
-## :four:프로젝트 페이지 설명
+## :four:프로젝트 페이지 사용 설명
 [페이지 설명 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/2e33415cd29cee5595f7512eae4afc2e6183d910/Page_decription.md) 
 ## :five:프로젝트의 기술적 요소
 
