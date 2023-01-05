@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=Waving&color=auto&height=300&section=header&text=Programming skill&fontSize=90)
+![header](https://capsule-render.vercel.app/api?type=Waving&color=auto&height=300&section=header&text=Programming&fontSize=90)
 
 JSP를 활용한 설문조사 폼 제작 프로젝트의 목적 중 하나는    
 프로그래밍적 요소를 사용자에게 제공하는 것입니다. 
