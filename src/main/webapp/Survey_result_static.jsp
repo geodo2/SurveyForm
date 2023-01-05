@@ -318,6 +318,7 @@ for(int i=0; i<question_length;i++){
     <div></div>
    <div>
     <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
+   <p>질문 타입 : 단답형</p>
     </div>
    단답형은 개별 답변에서 확인해주세요!  
    <div>
@@ -364,7 +365,8 @@ for(int i=0; i<question_length;i++){
     <div></div>
    <div>
    <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
-    <canvas id="myChart<%=i%>"></canvas>
+   <p>질문 타입 : 라디오</p>
+    <center><canvas id="myChart<%=i%>" width="500vw" height="500vh"></canvas></center>    
     </div>
 
    </div>
@@ -373,7 +375,7 @@ for(int i=0; i<question_length;i++){
    	<script>
 	let myChart<%=i%> = document.getElementById('myChart'+<%=i%>).getContext('2d');
 	var data_count=<%=radio_checked_count%>
-	var colorList = ['#A8C8F9', '#DFDFDF', '#FFCCCC', '#B8F3B8', '#FFAC33', '#FFA0A0', '#C177FB', '#FFDDA6', '#61AE76', '#969191'];
+	var colorList = ['#FF7B54', '#FFB26B', '#FFD56F', '#939B62', '#CFFDE1', '#68B984', '#3D5656', '#FFDDA6', '#61AE76', '#969191'];
 	var option_count = <%=qs_radio%>
 	let barchart<%=i%> =new Chart(myChart<%=i%>,{
 	   type: 'doughnut',
@@ -391,9 +393,10 @@ for(int i=0; i<question_length;i++){
 	      }]
 	   },
 		  options: {
+			  	responsive: false,
 		        title: {
 		            display: true,
-		            text: 'Checkbox Type 응답',
+		            text: '사용자 응답',
 		            position: 'top',
 		            fontFamily: "DoHyeon",
 		            fontSize: 25,
@@ -405,7 +408,7 @@ for(int i=0; i<question_length;i++){
 		            position: 'bottom',
 		            labels: {
 		            	fontSize: 20,
-		            	fontFamily: "DoHyeon",
+		            
 		            	fontWeight: 800,
 		                boxWidth: 20,
 		                fontColor: '#111',
@@ -465,7 +468,9 @@ for(int i=0; i<question_length;i++){
     <div></div>
    <div>
    <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
-    <canvas id="myChart<%=i%>"></canvas>
+    <p>질문 타입 : 체크박스</p>
+   <center><canvas id="myChart<%=i%>" width="500vw" height="500vh"></canvas></center>
+    
     </div>
 
    </div>
@@ -473,7 +478,7 @@ for(int i=0; i<question_length;i++){
    	<script>
 	let myChart<%=i%> = document.getElementById('myChart'+<%=i%>).getContext('2d');
 	var data_count=<%=checkbox_checked_count%>
-	var colorList = ['#A8C8F9', '#DFDFDF', '#FFCCCC', '#B8F3B8', '#FFAC33', '#FFA0A0', '#C177FB', '#FFDDA6', '#61AE76', '#969191'];
+	var colorList = ['#FF7B54', '#FFB26B', '#FFD56F', '#939B62', '#CFFDE1', '#68B984', '#3D5656', '#FFDDA6', '#61AE76', '#969191'];
 	var option_count = <%=qs_checkbox%>
 	let barchart<%=i%> =new Chart(myChart<%=i%>,{
 	   type: 'pie',
@@ -491,11 +496,12 @@ for(int i=0; i<question_length;i++){
 	      }]
 	   },
 		  options: {
+			  responsive: false,
 		        title: {
 		            display: true,
-		            text: 'Checkbox Type 응답',
+		            text: '사용자 응답',
 		            position: 'top',
-		            fontFamily: "DoHyeon",
+		         
 		            fontSize: 25,
 		            fontColor: '#111',
 		            padding: 20
