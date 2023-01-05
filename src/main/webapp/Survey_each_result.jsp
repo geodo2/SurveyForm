@@ -288,14 +288,14 @@ pageEncoding="UTF-8"  %>
       if(question_list[i].getSurvey_type().equals("Text")){
     	  a_question.add(1);
     cnt +=1;      
-       
+       int k=1+i;
        %>
 
 <div class='questionDiv'>
    <div class='firstSet'>
     <div></div>
    <div>
-    <%=question_list[i].getSurvey_content()%>
+   <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
     </div>
     답변보기: <%=survey_answer[i].getAnswer_content()%>
   
@@ -311,13 +311,14 @@ pageEncoding="UTF-8"  %>
       else if(question_list[i].getSurvey_type().equals("Radio")){
     	  a_question.add(2);  
    cnt +=1;
+   int k=i+1;
 %>
     <input type= "hidden" name="cnt<%=cnt%>" value="<%=cnt%>">
      <div class='questionDiv'>
      <div class='firstSet'>
     <div></div>
      <div>
-     <%=question_list[i].getSurvey_content()%>
+    <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
   
      </div>
      <div class='questionRadio1'>               
@@ -452,6 +453,7 @@ if(question_list[i].getQs_10()!=null){
       cnt +=1; 
  
       a_question.add(3);
+      int k= i+1;
 %>
       
          
@@ -460,7 +462,7 @@ if(question_list[i].getQs_10()!=null){
      <div class='firstSet'>
      <div></div>
     <div>
-     <%=question_list[i].getSurvey_content()%>
+     <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
      </div>
   
      <div class='questioncheckbox'>

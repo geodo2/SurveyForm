@@ -8,6 +8,20 @@
 <html>
 <head>
 <style>
+	.questionDiv{
+         background-color: white;
+         width: 80%;
+         margin: auto;
+         margin-top: 90px;
+         padding: 20px;
+         border-radius: 15px;
+         border: 2px solid #E3E3E3;
+      }
+      .firstSet{
+       
+         width: 100%;
+         text-align: left;
+      }
     	.anything{
     		background-color: white;
     		float: right;
@@ -57,7 +71,7 @@
          
          margin-right: 25px;
          margin-top: 120px;
-         background-color: #A4B2FF;
+         background-color: #FF7B54;
          color: white;
          border: none;
 
@@ -131,11 +145,12 @@
  	 {
 		
 %>			
-	<div class="some">
+	<div class='questionDiv'>
+	<div class='firstSet'>
 				<div class="row">
 					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
 						<div class="titleName">
-							<%=answer_list[i].getUser_id()%>
+						<h3><%=answer_list[i].getUser_id()%></h3>	
 							</div>
 								<div class="when">
 						<%=answer_list[0].getReg_data()%>
@@ -147,7 +162,7 @@
 								<button type="submit"  class="btn btn-secondary float-right">응답 확인</button>
 							</form>
 						</div>
-							
+				</div>			
 			</div>
 
  

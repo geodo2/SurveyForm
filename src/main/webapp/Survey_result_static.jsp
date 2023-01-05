@@ -387,7 +387,6 @@ for(int i=0; i<question_length;i++){
     	  backgroundColor: colorList,
           borderWidth: 0.5 ,
           borderColor: '#ddd',
-	      label:'바울랩 매출액',
 	      data:data_count
 	         
 	      }]
@@ -398,7 +397,6 @@ for(int i=0; i<question_length;i++){
 		            display: true,
 		            text: '사용자 응답',
 		            position: 'top',
-		            fontFamily: "DoHyeon",
 		            fontSize: 25,
 		            fontColor: '#111',
 		            padding: 20
@@ -490,7 +488,6 @@ for(int i=0; i<question_length;i++){
     	  backgroundColor: colorList,
           borderWidth: 0.5 ,
           borderColor: '#ddd',
-	      label:'바울랩 매출액',
 	      data:data_count
 	         
 	      }]
@@ -501,7 +498,6 @@ for(int i=0; i<question_length;i++){
 		            display: true,
 		            text: '사용자 응답',
 		            position: 'top',
-		         
 		            fontSize: 25,
 		            fontColor: '#111',
 		            padding: 20
@@ -511,7 +507,7 @@ for(int i=0; i<question_length;i++){
 		            position: 'bottom',
 		            labels: {
 		            	fontSize: 20,
-		            	fontFamily: "DoHyeon",
+		     
 		            	fontWeight: 800,
 		                boxWidth: 20,
 		                fontColor: '#111',
@@ -524,8 +520,7 @@ for(int i=0; i<question_length;i++){
 		        text: ""
 		    }
 	})
-
-</script>
+	</script>
 
 <% 	  
 	}

@@ -304,7 +304,7 @@ pageEncoding="UTF-8"  %>
    <div class='firstSet'>
    
    <div>
-    <%=question_list[i].getSurvey_content()%>
+     <h2> <%=question_list[i].getSurvey_content()%></h2>
     </div>
     <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='결과 페이지 내용(공백시 응답자 답변으로 구성)'>
   
@@ -327,8 +327,7 @@ pageEncoding="UTF-8"  %>
      <div class='firstSet'>
     <div></div>
      <div>
-     <%=question_list[i].getSurvey_content()%>
-  	
+    <h2> <%=question_list[i].getSurvey_content()%></h2>
      </div>
      <div class='questionRadio1'>               
     <div id='survey_option1_1'>
@@ -470,7 +469,7 @@ if(question_list[i].getQs_10()!=null){
      <div class='firstSet'>
      <div></div>
     <div>
-     <%=question_list[i].getSurvey_content()%>
+     <h2><%=question_list[i].getSurvey_content()%></h2>
      </div>
   
      <div class='questioncheckbox'>

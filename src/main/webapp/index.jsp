@@ -8,6 +8,49 @@
 <html>
 <head>
 <style>
+	.submitBtn{
+         width:200px;
+        
+         right:47px;
+         position: fixed;
+         bottom: 60px;
+         color: white;
+         
+         
+         margin-right: 25px;
+         margin-top: 120px;
+         background-color: #FF7B54;
+         color: white;
+         border: none;
+
+         font-weight: bold;
+         font-size: 25px;
+         
+         padding: 17px 30px 15px 30px;
+         box-shadow: 3px 3px 5px grey;
+      } 
+		.lookanswer{
+		float: right;
+		margin-bottom:50px;
+		position: relative;
+	    left: px;
+	    top:-43px;
+	    margin-right:30px;
+		}
+		.questionDiv{
+         background-color: white;
+         width: 80%;
+         margin: auto;
+         margin-top: 90px;
+         padding: 20px;
+         border-radius: 15px;
+         border: 2px solid #E3E3E3;
+      }
+      .firstSet{
+       
+         width: 100%;
+         text-align: left;
+      }
     	.anything{
     		background-color: white;
     		float: right;
@@ -45,6 +88,7 @@
 	    color: #fff;
 	    background-color: tomato;
 	    border-color: #28a745;
+	    margin-left: 1800px;
 		}
 		.bt_col {
 	     background-color: #A4B2FF;
@@ -133,11 +177,12 @@
  	 {
 
 %>			
-	<div class="some">
+	<div class='questionDiv'>
+	<div class='firstSet'>
 				<div class="row">
 					<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
 						<div class="titleName">
-							<%=survey_data[i].getSurvey_title()%> 
+							<h3><%=survey_data[i].getSurvey_title()%></h3>
 							</div>
 								<div class="when">
 									<%=survey_data[i].getReg_date() %>
@@ -160,6 +205,7 @@
 		               		<button type="submit"  class="btn btn-secondary float-right">링크복사</button>
 		                </a>
 		                </div>		
+		             </div>   
 				 </div>
 
  
@@ -175,9 +221,7 @@
    
 
 			       
-	         <div class="footer">
-	
-	         </div>	          
+	      
       </div>
       <script>
       function clip(j){
@@ -198,13 +242,11 @@
    
       
       </script>
-      							
-	<div class="modal-footer">
-	<form method="post" action="./makesurvey.jsp">
-	<button type="submit" class="btn make-btn col-10-6 mt-4">설문 만들기</button>
-	</form>
+     							
 	
-	</div>
+	<form method="post" action="./makesurvey.jsp">
+	<button type="submit" class="submitBtn">설문 만들기</button>
+	</form>
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
 	<!-- 파퍼 자바스크립트 추가하기 -->

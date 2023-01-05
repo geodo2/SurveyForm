@@ -184,7 +184,7 @@ pageEncoding="UTF-8"  %>
          
          margin-right: 25px;
          margin-top: 120px;
-         background-color: #212529;
+         background-color: #FF7B54;
          color: white;
          border: none;
 
@@ -274,14 +274,14 @@ pageEncoding="UTF-8"  %>
       if(question_list[i].getSurvey_type().equals("Text")){
     	  a_question.add(1);
     cnt +=1;      
-       
+       int k= i+1;
        %>
 
 <div class='questionDiv'>
    <div class='firstSet'>
     <div></div>
    <div>
-    <%=question_list[i].getSurvey_content()%>
+    <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
     </div>
     <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='답변을 입력하세요'>
   
@@ -297,13 +297,14 @@ pageEncoding="UTF-8"  %>
       else if(question_list[i].getSurvey_type().equals("Radio")){
     	  a_question.add(2);  
    cnt +=1;
+   int k= i+1;
 %>
     <input type= "hidden" name="cnt<%=cnt%>" value="<%=cnt%>">
      <div class='questionDiv'>
      <div class='firstSet'>
     <div></div>
      <div>
-     <%=question_list[i].getSurvey_content()%>
+        <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
   
      </div>
      <div class='questionRadio1'>               
@@ -435,7 +436,7 @@ if(question_list[i].getQs_10()!=null){
       }
       else if(question_list[i].getSurvey_type().equals("Selection")){
       cnt +=1; 
- 
+      int k= i+1;
       a_question.add(3);
 %>
       
@@ -445,7 +446,7 @@ if(question_list[i].getQs_10()!=null){
      <div class='firstSet'>
      <div></div>
     <div>
-     <%=question_list[i].getSurvey_content()%>
+         <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
      </div>
   
      <div class='questioncheckbox'>

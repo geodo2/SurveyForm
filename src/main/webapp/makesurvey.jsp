@@ -64,7 +64,7 @@
          width: 200px;
          position: fixed;
          right:30px;
-         background-color: #A4B2FF;
+         background-color: #212529;
          color: white;
          border: none;
          font-weight: bold;
@@ -185,7 +185,7 @@
          
          margin-right: 25px;
          margin-top: 120px;
-         background-color: #212529;
+         background-color: #FF7B54;
          color: white;
          border: none;
 

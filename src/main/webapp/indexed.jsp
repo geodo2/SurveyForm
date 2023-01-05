@@ -10,6 +10,41 @@ pageEncoding="UTF-8"  %>
 <html>
 <head>
     <style>
+    .submitBtn{
+         width:200px;
+        
+         right:47px;
+         position: fixed;
+         bottom: 60px;
+         color: white;
+         
+         
+         margin-right: 25px;
+         margin-top: 120px;
+         background-color: #FF7B54;
+         color: white;
+         border: none;
+
+         font-weight: bold;
+         font-size: 25px;
+         
+         padding: 17px 30px 15px 30px;
+         box-shadow: 3px 3px 5px grey;
+      } 
+    .questionDiv{
+         background-color: white;
+         width: 80%;
+         margin: auto;
+         margin-top: 90px;
+         padding: 20px;
+         border-radius: 15px;
+         border: 2px solid #E3E3E3;
+      }
+      .firstSet{
+       
+         width: 100%;
+         text-align: left;
+      }
     	.anything{
     		float: right;
     	}
@@ -137,14 +172,15 @@ pageEncoding="UTF-8"  %>
 
 %>			
 </section>	
-			<div class="some">
+			<<div class='questionDiv'>
+		<div class='firstSet'>
 				<div class="row">
 				<img src="./image/tugas.jpg" alt="이미지" style="width:20;" />
 						<div class="titleName">
-						<%=survey_list[0].getSurvey_title() %>
+						<h3><%=survey_list[0].getSurvey_title() %></h3>
 						</div>
 						<div class="when">
-					답변 날짜: <%=survey_answer[i].getReg_data() %>
+					<%=survey_answer[i].getReg_data() %>
 						</div>
 						
 				</div>
@@ -154,18 +190,18 @@ pageEncoding="UTF-8"  %>
 				</form>
 				</div>			
 			</div>
-			
+			</div>
 			
 <%
 }
 %>			
 			
-	<div class="modal-footer">
+	
 	<form method="post" action="./makesurvey.jsp">
-	<button type="submit" class="btn make-btn col-10-6 mt-4">설문 만들기</button>
+	<button type="submit" class="submitBtn">설문 만들기</button>
 	</form>
 	
-	</div>
+	
 	<!-- 제이쿼리 자바스크립트 추가하기 -->
 	<script src="./js/jquery.min.js"></script>
 	<!-- 파퍼 자바스크립트 추가하기 -->
