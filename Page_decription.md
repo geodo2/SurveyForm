@@ -1,9 +1,10 @@
-# 페이지 설명
+# 🥰:페이지 요약
 
 
-## 회원가입 및 로그인
+## 1️⃣:회원가입 및 로그인
 회원가입 화면: 이메일 인증시스템 도입
 ![image](https://user-images.githubusercontent.com/94734394/204644510-cb89cb12-08bc-4b53-912d-6024dbd8256d.png)
+![image](https://user-images.githubusercontent.com/94734394/210726762-7111711f-2b50-43a3-8340-9905a4d019f2.png)
 
 로그인 화면
 ![image](https://user-images.githubusercontent.com/94734394/206069499-e7421c69-1603-45a9-ae1d-3bcc43385061.png)
