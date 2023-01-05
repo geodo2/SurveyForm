@@ -99,6 +99,7 @@ JSP에서는 javascript를 추가할 수 있는 script 태그를 사용할 수 �
 ```
 ✔️:Point
 * Html과 마찬가지로 Java코드가 <%=%>의 형태로 삽입이 되어있습니다.
-* 크기는 반응형을 위해 vw,vh를 사용하였습니다.
-* 제 문항 수에 따라 차트 개수가 달라지기 때문에 Java코드가 <%=i%>로 삽입이 되어있습니다. 제거하고 사용하면 됩니다.
+* Type에 Bar, Pie, Line, Bubble 등등 파라미터를 다르게주면 다양한 형태의 차트가 형성됩니다. 
+* labels, data, backgroundcolor의 파라미터로는 List형태를 삽입해야합니다. 저는 Java측에서    
+  리스트 형태로 구현 및 저장을 했기에 script에 바로 사용이 가능했습니다.
 
