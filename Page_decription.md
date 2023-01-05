@@ -52,6 +52,25 @@
 </div>
 
 
+ ## 4️⃣:설문 개인 결과 및 통계
+✔️Check Point    
+* 개인 설문 결과 Page: 개개인 별로 설문 결과를 확인 가능 
+* 결과 통계 Page: 질문 타입에 따라 다른 통계 결과를 확인 가능
 
+
+<div>
+<img src="https://user-images.githubusercontent.com/94734394/210738254-73c6818c-49e0-4461-8528-285facef6588.png"  width="400" height="200"/>
+<img src="https://user-images.githubusercontent.com/94734394/210738380-88947596-59e5-4d2b-bdc8-32bdc4688b7e.png"  width="400" height="200"/>
+</div>
+
+✔️Check Point   <br>
+* 단답형 통계: 단답형은 개인 결과화면에서 확인 <br>
+* 라디오형식 통계: doghnut 차트로 통계  <br>
+* 체크박스형식 통계: pie 차트로 통계  <br>
+  <br>
+  <div>
+  <img src="https://user-images.githubusercontent.com/94734394/210738657-96ae2741-3e1d-4796-8999-0760180b58ea.png"  width="400" height="200"/>
+  <img src="https://user-images.githubusercontent.com/94734394/210738677-2c0ac881-46ec-4d2d-ab22-8882ebc6f954.png"  width="400" height="200"/>
+  </div>
 
 
