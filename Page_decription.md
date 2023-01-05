@@ -1,48 +1,56 @@
 # 🥰:페이지 요약
 
 
+
 ## 1️⃣:회원가입 및 로그인
+✔️Check Point
 회원가입 화면: 이메일 인증시스템 도입
-![image](https://user-images.githubusercontent.com/94734394/204644510-cb89cb12-08bc-4b53-912d-6024dbd8256d.png)
-![image](https://user-images.githubusercontent.com/94734394/210726762-7111711f-2b50-43a3-8340-9905a4d019f2.png)
-
-로그인 화면
-![image](https://user-images.githubusercontent.com/94734394/206069499-e7421c69-1603-45a9-ae1d-3bcc43385061.png)
-
-## 메인화면 
-만든 설문조사 page: 로그인된 사용자가 직접 제작한 설문조사 확인 가능
-![image](https://user-images.githubusercontent.com/94734394/204643870-f8730f61-71ba-46be-b223-e5f5c15af1b9.png)
-응답한 설문 page:유저가 응한 설문들을 모아볼 수 있음.
-![image](https://user-images.githubusercontent.com/94734394/204643909-bab4f626-e974-4ed4-817c-a702d6907139.png)
-
-## 설문지 제작화면 
-설문은 세가지 질문 타입으로 질문을 생성가능합니다.( 단답형, 라디오형식, 체크박스형식)
-![image](https://user-images.githubusercontent.com/94734394/209276905-6c811e93-add3-4cc1-bd22-cbdbbb8b8a18.png)
+<div>
+<img src="https://user-images.githubusercontent.com/94734394/210728064-83c4fbc1-6729-42c6-9f1a-5ca05e9a9089.png"  width="400" height="200"/>
+<img src="https://user-images.githubusercontent.com/94734394/210727548-a6eac724-842e-4f49-971e-e9dfb5ae25e1.png"  width="400" height="200"/>
+</div>
+<img src="https://user-images.githubusercontent.com/94734394/210727890-5896b3fe-dd95-4f9b-ab47-91d89ee324a7.png"  width="200" height="70"/>
 
 
+## 2️⃣:메인화면 
+✔️Check Point
+* 만든 설문조사 Page: 로그인된 사용자가 직접 제작한 설문조사 확인 가능, 링크 복사, 결과 페이지와 연결
+* 응답한 설문 Page: 유저가 응한 설문들을 모아볼 수 있음.
+<div>
+<img src="https://user-images.githubusercontent.com/94734394/210729670-e15698ca-9e99-4e58-98f2-b688bc40d5fd.png"  width="400" height="200"/>
+<img src="https://user-images.githubusercontent.com/94734394/210730945-c1f2453a-17ce-472d-97df-8f7429b68ffe.png"  width="400" height="200"/>
+</div>
 
-## 설문지 결과 (프로그래밍적 요소)
-프로그래밍적 요소를 넣어 사용자가 결과 화면을 구성할 수 있게끔 하였습니다.
-![image](https://user-images.githubusercontent.com/94734394/210292006-bc2e88fc-e196-4277-bb10-5a0a35942f73.png)
-질문 타입별로 다른 방식으로 Admin이 결과페이지를 설계할 수 있습니다.
+## 3️⃣:설문지 제작화면 및 결과 화면 제작(+프로그래밍적 요소)
+✔️Check Point
+* 설문 제작 Page: 설문은 세가지 질문 타입으로 질문을 생성가능.( 단답형, 라디오형식, 체크박스형식)
+* 결과화면 제작 Page: 설문 후 마주하게되는 결과화면 구성 가능. 기본적인 HTML 태그(h1,p,br tag) 사용가능. 
+  질문의 대답에 따른 변수 설정 가능. 사용법 EX. <q>질문1<q> 
 
-질문에 대한 프로그래밍적 요소를 밑의 예시처럼 사용이 가능합니다.
-또한 기본적인 h1,p,br 과 같은 기본적인 태그로 결과페이지를 꾸밀 수 있습니다. 
-
-![image](https://user-images.githubusercontent.com/94734394/210292806-cf3bae57-1ffe-4700-ad2d-2aa4c8b3ca95.png)
-
-
-
-
-단답형의 경우 해당 응답자의 답변을 그대로 사용할 수 있고 Admin이 새로운 변수를 추가할 수 있습니다.
-![image](https://user-images.githubusercontent.com/94734394/210292315-b5dc9cf9-72d8-424f-b77a-583c5ac9133f.png)
+<div>
+<img src="https://user-images.githubusercontent.com/94734394/209276905-6c811e93-add3-4cc1-bd22-cbdbbb8b8a18.png"  width="400" height="200"/>
+<img src="https://user-images.githubusercontent.com/94734394/210292006-bc2e88fc-e196-4277-bb10-5a0a35942f73.png"  width="400" height="200"/>
+</div><br>
+✔️Check Point   <br>
+* 단답형 변수 설정: 응답자의 답변 혹은 제작자가 직접 변수 설정   <br>
+* 라디오형식 변수 설정: 응답자가 고르는 옵션에 따라 답변이 다르게 나오도록 설정   <br>
+* 체크박스형식 변수 설정: 응답자가 고르는 옵션 갯수에 따라 답변이 다르게 나오도록 설정  <br>
+  <br>
+  <div>
+  <img src="https://user-images.githubusercontent.com/94734394/210736198-0d101505-44a1-45f9-afb7-d8108ea11fe7.png"  width="300" height="200"/>
+  <img src="https://user-images.githubusercontent.com/94734394/210736253-44e648e8-5839-4d65-9472-464166988b55.png"  width="300" height="200"/>
+  <img src="https://user-images.githubusercontent.com/94734394/210736271-e4db6b89-21f7-4169-8051-5e3fbe3ae0cd.png"  width="300" height="200"/>
+  </div>
   
+ ## 4️⃣:설문 응답 및 완료 결과 화면 
+✔️Check Point    
+* 개인 설문 Page: 링크에서 받은 설문을 응답하기
+* 설문 완료 Page: 설문 제작자가 설정한대로 응답에 따라 다른 결과 화면 
+<div>
+<img src="https://user-images.githubusercontent.com/94734394/210737641-dbb1da37-604d-40c7-84af-f6b30f52f4b1.png"  width="400" height="200"/>
+<img src="https://user-images.githubusercontent.com/94734394/210737536-23434128-9cb0-498c-82c2-0f4c7ad6db70.png"  width="400" height="200"/>
+</div>
 
-라디오의 경우 해당 응답자의 선택에 따른 변수들을 미리 설정이 가능합니다.  
-![image](https://user-images.githubusercontent.com/94734394/210292269-b42664c0-e347-4766-9256-5340b46fb7dc.png)
-
-체크박스의 경우 응답자가 체크한 답변 갯수에 따른 변수 설정이 가능합니다.
-![image](https://user-images.githubusercontent.com/94734394/210292191-496ebadf-256a-4d6b-b489-89f65ede3c3a.png)
 
 
 
