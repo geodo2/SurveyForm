@@ -37,7 +37,7 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 ## :four:프로젝트 페이지 사용 설명
 [페이지 설명 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/2e33415cd29cee5595f7512eae4afc2e6183d910/Page_decription.md) 
 ## :five:프로젝트의 기술적 요소
-<br>[프로그래밍적 요소](https://github.com/soominkiminsoo/SurveyForm1/blob/87e7c034ba6aeb5aa1a9eaaab044fb093f750e78/Readme(programming).md)<br>
+<br>[프로그래밍적 요소](https://github.com/soominkiminsoo/SurveyForm1/blob/e100ab69baa28bd85664e81de97fffbf02545263/Readme(programming).md)<br>
 <br>[통계 페이지 (차트)](https://github.com/soominkiminsoo/SurveyForm1/blob/4d1bd157ed2473ffdcc1710c9b984deee567fff1/Readme(chart).md)<br> 
 ##
 
