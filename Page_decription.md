@@ -24,8 +24,8 @@
 ## 3️⃣:설문지 제작화면 및 결과 화면 제작(+프로그래밍적 요소)
 ✔️Check Point
 * 설문 제작 Page: 설문은 세가지 질문 타입으로 질문을 생성가능.( 단답형, 라디오형식, 체크박스형식)
-* 결과화면 제작 Page: 설문 후 마주하게되는 결과화면 구성 가능. 기본적인 HTML 태그(h1,p,br tag) 사용가능. 
-  질문의 대답에 따른 변수 설정 가능. 사용법 EX. <q>질문1<q> 
+* 결과화면 제작 Page: 설문 후 마주하게되는 결과화면 구성 가능. 기본적인 HTML 태그(h1,p,br tag) 사용가능.    
+  질문의 대답에 따른 변수 설정 가능. 사용법 EX. p tag 질문1 
 
 <div>
 <img src="https://user-images.githubusercontent.com/94734394/209276905-6c811e93-add3-4cc1-bd22-cbdbbb8b8a18.png"  width="400" height="200"/>
