@@ -319,129 +319,38 @@ pageEncoding="UTF-8"  %>
     <div></div>
      <div>
     <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
-  
-     </div>
-     <div class='questionRadio1'>               
-    <div id='survey_option1_1'>
+   </div><div class='questionRadio1'><div id='survey_option1_1'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_1' value ='<%=question_list[i].getQs_1()%>'>
-    <label for='radio1_2'>
-    <%=question_list[i].getQs_1()%>
-    </label>
-
-    </div>                
-    <div id='survey_option1_2'>
+    <label for='radio1_2'><%=question_list[i].getQs_1()%>
+    </label></div><div id='survey_option1_2'>
     <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_2()%>'>                
-   <label for='radio1_2'>
-    <%=question_list[i].getQs_2()%>
-      </label>
-   </div>    
-
-<%
-     if(question_list[i].getQs_3()!=null){
-   
-%>    
-    </div>                 
-    <div id='survey_option1_2'>
+   <label for='radio1_2'><%=question_list[i].getQs_2()%></label></div>    
+<%if(question_list[i].getQs_3()!=null){%></div><div id='survey_option1_2'>
     <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_3()%>'>                
-    <label for='radio1_2'>
-    <%=question_list[i].getQs_3()%>
-    </label> 
-  
-<%    
-      } 
-%>
-<%
-   if(question_list[i].getQs_4()!=null){
-%>    
-   
-   </div>                 
+    <label for='radio1_2'><%=question_list[i].getQs_3()%></label><%}%>
+<%if(question_list[i].getQs_4()!=null){%></div>                 
    <div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_4()%>'>                
-   <label for='radio1_2'>
-       <%=question_list[i].getQs_4()%>
-   </label> 
-   </div>   
-<%    
-    } 
-%>   
-<%
-   if(question_list[i].getQs_5()!=null){
-%>    
-   </div>                 
-   <div id='survey_option1_2'>
+   <label for='radio1_2'><%=question_list[i].getQs_4()%></label></div><%}%>   
+<%if(question_list[i].getQs_5()!=null){%></div><div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_5()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_5()%>
-   </label> 
-	</div>
-<%    
-    } 
-%>   
-<%
-   if(question_list[i].getQs_6()!=null){
-%>    
-               
-   <div id='survey_option1_2'>
+   <label for='radio1_2'><%=question_list[i].getQs_5()%></label></div><%}%>   
+<%if(question_list[i].getQs_6()!=null){%><div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_6()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_6()%>
-   </label>
-   </div>  
-<%    
-    } 
-%>   
-<%
-   if(question_list[i].getQs_7()!=null){
-%>    
-                
-   <div id='survey_option1_2'>
-   <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_7()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_7()%>
-   </label> 
-
-<%    
-    } 
-%>   
-<%
-if(question_list[i].getQs_8()!=null){
-%>    
-                 
-   <div id='survey_option1_2'>
+   <label for='radio1_2'><%=question_list[i].getQs_6()%></label></div><%}%>   
+<%if(question_list[i].getQs_7()!=null){%> <div id='survey_option1_2'><input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_7()%>'>                
+   <label for='radio1_2'><%=question_list[i].getQs_7()%></label><%}%>   
+<%if(question_list[i].getQs_8()!=null){%><div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2' value ='<%=question_list[i].getQs_8()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_8()%>
-   </label> 
-   </div>   
-<%    
-    } 
-%>
-<%
-   if(question_list[i].getQs_9()!=null){
-%>    
-            
-   <div id='survey_option1_2'>
+   <label for='radio1_2'><%=question_list[i].getQs_8()%></label></div><%}%>
+<%if(question_list[i].getQs_9()!=null){%> <div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_9()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_9()%>
-   </label> 
-   </div>   
-<%    
-    } 
-%>   
-<%
-if(question_list[i].getQs_10()!=null){
-%>    
+   <label for='radio1_2'><%=question_list[i].getQs_9()%></label></div><%}%>
+<%if(question_list[i].getQs_10()!=null){%>    
    </div>                 
    <div id='survey_option1_2'>
    <input type='radio' class='radioCircle' name='radioGroup<%=cnt%>' id='radio1_2'value ='<%=question_list[i].getQs_10()%>'>                
-   <label for='radio1_2'>
-   <%=question_list[i].getQs_10()%>
-   </label> 
-   </div>   
-<%    
-    } 
-%>   
+   <label for='radio1_2'><%=question_list[i].getQs_10()%></label></div><%}%>   
 <br>답변보기: <%=survey_answer[i].getAnswer_content()%></br>
    </div>
    </div>
