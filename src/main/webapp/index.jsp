@@ -196,7 +196,7 @@
 							</form>
 						</div>
 						<div class="lookanswer">
-							<form method="post" action="./usersurvey.jsp?survey_num=<%=survey_data[i].getSeq()%>">
+							<form method="post" action="./checkmakedsurvey.jsp?survey_num=<%=survey_data[i].getSeq()%>">
 								<button type="submit"  class="btn btn-secondary float-right">설문 확인</button>
 							</form>
 						</div>
@@ -237,7 +237,7 @@
           document.execCommand("copy");   // 복사
           document.body.removeChild(textarea); //extarea 요소를 없애줌
           
-          alert("URL이 복사되었습니다.")  // 알림창
+           // 알림창
       }
    
       
