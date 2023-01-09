@@ -260,12 +260,14 @@ pageEncoding="UTF-8"  %>
 <div class="middle">
      
       
-      <form id="surveyfm" nmae="surveyfm" method="POST" action="./Editsurvey.jsp?survey_num=<%=survey_sid%>">
+      <form id="surveyfm" nmae="surveyfm" method="POST" action="./userSubmitAction.jsp">
 
          <div class="name">
-          <div class ="titleName"><%=survey_list[0].getSurvey_title()%><div>
+          <div class ="titleName">
+          <input type="text" class="formName" value="<%=survey_list[0].getSurvey_title()%>" name="survey_title">
          </div>
          </div>
+         <div>
          </div>
           <%
      for(int i=0; i<question_num;i++){
@@ -281,7 +283,8 @@ pageEncoding="UTF-8"  %>
    <div class='firstSet'>
     <div></div>
    <div>
-    <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
+    <h2>질문<%=k%><input type="text" class="questionContent" value="<%=question_list[i].getSurvey_content()%>" name="survey_content'+cnt+'"></h2>
+    <%=question_list[i].getSurvey_content()%>
     </div>
     <input type='text' class='questionText' name='survey_text<%=cnt%>' placeholder='답변을 입력하세요'>
   
@@ -304,6 +307,7 @@ pageEncoding="UTF-8"  %>
      <div class='firstSet'>
     <div></div>
      <div>
+      <h2>질문<%=k%><input type="text" class="questionContent" value="<%=question_list[i].getSurvey_content()%>" name="survey_content'+cnt+'"></h2>
         <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
   
      </div>
@@ -446,6 +450,7 @@ if(question_list[i].getQs_10()!=null){
      <div class='firstSet'>
      <div></div>
     <div>
+     <h2>질문<%=k%><input type="text" class="questionContent" value="<%=question_list[i].getSurvey_content()%>" name="survey_content'+cnt+'"></h2>
          <h2>질문<%=k%>.<%=question_list[i].getSurvey_content()%></h2>
      </div>
   
@@ -530,7 +535,7 @@ if(question_list[i].getQs_10()!=null){
   		 <input type="hidden" name="total" id="total" value= "<%=cnt%>">
          <div class="footer">
                
-            <button type="submit" class="submitBtn">편집 하기</button>
+            <button type="submit" class="submitBtn">수정 완료</button>
          </div>
            </form>
  
