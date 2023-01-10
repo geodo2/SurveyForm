@@ -21,7 +21,7 @@
   3.  설문 서비스에 프로그래밍적 요소를 담아 기술적 개선 여지 발굴 가능성
 ## :two:개발환경 및 이용 방법
 
-<b>프로젝트 clone</b>
+<b>clone 프로젝트 </b>
 ```xml
 gh repo clone https://soominkiminsoo/SurveyForm1.git
 ```
