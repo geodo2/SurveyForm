@@ -1,3 +1,5 @@
+## 데이터베이스 테이블 (테이블 명, 타입, element 포함)
+
 ![image](https://user-images.githubusercontent.com/94734394/210495236-d003e3c2-ebc4-4820-9768-11b9196d0b82.png)
 
 ![image](https://user-images.githubusercontent.com/94734394/210495266-c000f6f7-99fc-41a9-bd96-3e83a5ecc242.png)
