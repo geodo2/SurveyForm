@@ -41,6 +41,3 @@ https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-i
 <br>[통계 페이지 (차트)](https://github.com/soominkiminsoo/SurveyForm1/blob/4d1bd157ed2473ffdcc1710c9b984deee567fff1/Readme(chart).md)<br> 
 ##
 
-https://www.notion.so/e33beec0a4114a12931af9c6dbd69514#d667ef1e754c49b9af0f02d44f4c7c26
-
- 
