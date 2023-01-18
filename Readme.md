@@ -7,37 +7,22 @@
 
   <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
   <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
-    <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
   <br>
   
 
 </div>
 
-## :one:프로젝트 계획 이유
-  기존 Survey 서비스 Google Form이나 MicroSoft survey을 분석 및 브레인 스토밍을 통해 개선 활용 방안을 구상하였고 해당 서비스에 조금     더 기술적인 개선의 여지를 찾아 다양한 시도를 해보기 위함.
-  구상한 개선 아이디어는 다음과 같음.
-  1.  자신이 응답한 설문을 시간이 지난 후에도 확인이 가능함.
-  2.  설문 응시자에게 응답에 따른 다른 결과화면을 보여주는 것.
-  3.  설문 서비스에 프로그래밍적 요소를 담아 기술적 개선 여지 발굴 가능성
-## :two:개발환경 및 이용 방법
+## 프로젝트 계획 이유
+ 🌱  Eta-scheduling Site 서비스는 학생들이 조금 더 수월하게 약속을 잡을 수 있도록 에브리타임 시간표를 비교해주어 약속 잡을 수 있는 시간표를 제공하는 서비스 입니다
 
-<b>clone 프로젝트 </b>
-```xml
-gh repo clone https://soominkiminsoo/SurveyForm1.git
-```
- <b>jar 파일 다운로드</b>
-* mysql-connector-j-8.0.31.jar
-* mail-1.4.7.jar
-* activation.jar
-   
-<b>데이터 베이스</b>
-[데이터베이스 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/712801d77cc69d13665eb9b10a81b2e6a7e250a0/database.md)
-## :three:프로젝트 기획 (Figma Design) 
-https://www.figma.com/file/9MwQ0w4LL7Csdo6zWw0YZQ?embed_host=notion&kind=&node-id=0%3A1&t=YO4wiZdihVIRZHGc-0&viewer=1
-## :four:프로젝트 페이지 사용 설명
-[페이지 설명 보기](https://github.com/soominkiminsoo/SurveyForm1/blob/209b5bf14ee8378269f7961ba7ecd641898a60a1/Page_decription.md) 
-## :five:프로젝트의 기술적 요소
-<br>[프로그래밍적 요소](https://github.com/soominkiminsoo/SurveyForm1/blob/4b1d255b251a2a9ecf1ba9a48d28e53a202a6125/Readme(programming).md)<br>
-<br>[통계 페이지 (차트)](https://github.com/soominkiminsoo/SurveyForm1/blob/4d1bd157ed2473ffdcc1710c9b984deee567fff1/Readme(chart).md)<br> 
-##
 
+## 프로젝트 Guidline
+
+
+
+## 문의
+
+관리자 오픈채팅 : [https://open.kakao.com/o/sIAAVdGe](https://open.kakao.com/o/sGmPviKe)
+
+⚠️ 버그가 발견되거나, 서비스 이용에 어려움이 있으시다면 위의 오픈채팅으로 연락 주세요! 빠른 조치 취하도록 하겠습니다! 😃
